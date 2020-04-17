@@ -15,8 +15,9 @@ https://www.babysec.com.ar/
 
 Breve descripción de la oferta de productos y / o servicios ofrecidos por su sitio:
 
-Productos de limpieza para el cuidado del bebe y la mamá.
+-Productos de limpieza para el cuidado del bebe y la mamá.
 Ejemplo: Pañales, toallitas, oleo, algodon, apositos,etc.
+- Rodados, ejemplo: cochecitos, andadores,etc
 
 Público al que apunta el sitio:
 
