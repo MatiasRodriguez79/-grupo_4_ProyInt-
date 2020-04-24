@@ -30,6 +30,6 @@ Ysmael A: Progrmador tenaz.
 Bruno: A: Diseñador ultra detallista. 
 
 Tableros:
-https://trello.com/b/aUysdx1j/proyint-sprint1
+-https://trello.com/b/aUysdx1j/proyint-sprint1 <br>
 -https://trello.com/b/0alpQQ3M/proyintsprint2
 
