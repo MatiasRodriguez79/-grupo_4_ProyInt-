@@ -11,7 +11,7 @@
 
 .main-nav li{    
 
-    display: block;
+    display: flex;
     float: right;
     width: 180px;
     height: 50px;
@@ -24,9 +24,12 @@
 .sign-in-nav{
      
     overflow: hidden;
-    display: block;
-    float: right;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
     width: 200px;
+    
+    
     
 }
 
@@ -43,6 +46,9 @@
 }
 
 #form{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
     width: 900px;
     border-left: solid orange 1px;
     padding: 20px;
