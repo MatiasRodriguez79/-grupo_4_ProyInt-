@@ -1,0 +1,66 @@
+body{
+  font-family: 'Helvetica' !important;
+  font-size: 12px;
+}
+
+.logo-container{
+  width: 300px;
+  justify-content: center;
+  background-color: white;
+  display: flex;
+}
+
+.logo{
+  margin: 19px 20px 0px 0px;  
+}
+
+.logo img{
+  width: 155px;
+}
+
+header{
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+ul {
+  
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  background-color: white;
+}
+
+li {
+  border-left: 1px solid rgba(26,26,26,0.15);
+}
+
+li .active{
+  cursor: default;
+}
+
+li a{
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 30px 35px;
+  text-decoration: none;
+  /* height: 77px; */
+}
+
+.banner{
+  
+}
+
+.banner img{
+  height: 800px;
+  width: 100%;
+}
+
+.title{
+  position: absolute;
+  color: white;
+}
