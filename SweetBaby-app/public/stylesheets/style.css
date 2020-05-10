@@ -1,14 +1,36 @@
 
 @import "./navbar.css";
-
+@import "./footer.css";
+@import "./bag.css";
 
 
 body{
   font-family: 'Helvetica' !important;
-  font-size: 12px;
+  font-size: 12px; 
+  background-color: #f6f6f6;  
 }
 
+main{
+  min-height: 500px;
+}
 
+a {
+  text-decoration: none;
+}
+
+ul {    
+  list-style-type: none;
+}
+
+.carousel img{
+  height: 800px;
+}
+
+.carousel-caption{
+  top: 40%;
+  /* text-align: center; */
+  /* color: white;   */
+}
 
 .img-container{
   position: relative;
@@ -36,12 +58,12 @@ body{
 }
 
 
-.articule{
+.articule .card{
   margin: 30px 0px 0px 0px;
   /* background-color: lightcoral; */
   overflow: hidden;
-  position: relative;
-  height: 100%;
+  /* position: relative; */
+  height: 350px;
   /* justify-content: space-between; */
 }
 
@@ -59,11 +81,11 @@ body{
 }
 
 .info-articule{
-  top: 25%;
+  top: 35%;
   left: 50%;
   position: absolute;
   align-items: center;
-  width: 150px;
+  width: 200px;
 }
 
 .info-articule button{
@@ -73,7 +95,7 @@ body{
   border: 1px solid white;
 }
 
-.articule:hover img {
+.articule .card:hover img {
   -webkit-transform:scale(1.1);
   -moz-transform:scale(1.1);
   -ms-transform:scale(1.1);

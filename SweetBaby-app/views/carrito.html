@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/stylesheets/style.css">    
+    <link rel="stylesheet" href="../../fontawesome-free-5.13.0-web/css/all.css">   
+</head>
+<body>
+    <header class="container-fluid">
+        <div class="logo-container">
+            <a class="logo" href="index.html">
+                <img src="./img/Logo SweetBaby2.png" alt="">
+            </a>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light">            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto ">
+                    <li class="nav-item active"><a class="active nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#news">Store</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Login/Register</a></li>
+                    <li class="nav-item"></li>                    
+                </ul>
+            </div>            
+            <div class="header-icons">
+                <a class="nav-link" href="carrito.html" rel="nofollow">
+                    <span id="cart-icon">
+                         <img src="./img/carrito.svg">
+                         <span class="header-icons-amount">1</span>
+                     </span>
+                 </a>
+            </div>
+        </nav> 
+    </header>
+
+    <main>        
+        <section>
+            <div class="container" id="myContainer">
+                <h1 class="cart-title">Mi Carrito</h1>
+                <div class="row">
+                    <div class="col-lg-8 col-md-8">
+
+                        <!-- <div class="cart-empty"><p>No hay productos en tu carrito.</p></div> -->
+
+                        <div class="card">
+                            <div class="cart-item-detail">
+                                <div class="cart-item-column">
+                                    <picture class="cart-item-image">
+                                        <a href="#" title="Producto Title" target="_blank">
+                                            <img src="https://picsum.photos/100/100" alt="Img Alt" itemprop="image">
+                                        </a>
+                                    </picture>
+                                </div> 
+                                <div class="cart-item-column cart-item-column-lg">
+                                    <h3 class="cart-item-name">
+                                        <a href="#" title="Producto ID" itemprop="url" target="_blank" rel="noopener noreferrer">Producto Title</a>
+                                    </h3>
+                                </div>
+                                <div class="cart-item-column-sm">
+                                    <label>Precio:</label>
+                                    <span class="cart-item-column-data precio-texto">$42.999 </span>
+                                </div>
+                                <div class="cart-item-column-sm">
+                                    <label>Cantidad:</label>
+                                    <select class="form-control form-control--sm" id="idQuantity_83d84b695c">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                    </select>
+                                </div>
+                                <div class="cart-item-column-sm">
+                                    <label>Subtotal:</label>
+                                    <strong class="cart-item-column-data precio-texto">$42.999 </strong>
+                                </div>
+                                <button class="gui-icon" data-target="#delete-product" onclick="alert('Aqui se eliminara el producto')">
+                                    <i class="far fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-4 col-md-4">
+                        <div class="resumen">
+                            <div class="card cart-resumen">
+                                <div class="cart-resumen-header">
+                                    <span class="cart-resumen-title">Resumen de compra</span>
+                                </div>
+                                <ul class="resumen-detail">
+                                    <li id="subtotal">
+                                        <label>Subtotal</label>
+                                        <span class="resumen-detail-value">$42.999</span>
+                                    </li>
+                                    
+                                    <li class="resumen-total" id="total">
+                                        <label>Total</label>
+                                        <span class="resumen-detail-value">$42.999</span>
+                                    </li>
+                                </ul>                                
+                            </div> 
+                            <div class="cart-actions">
+                                <button class="btn btn-link" onclick="alert('Aqui seguiria comprando!')">COMPRAR MÁS PRODUCTOS</button>
+                                <button type="button" class="btn btn-primary" onclick="alert('Aqui avanzamos con el pago')">Continuar</button>
+                            </div>                                  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-2 col-md-3">
+                    <img class="footer-logo" src="./img/Logo SweetBaby2.png" alt="">
+                </div>
+                <div class="col-lg-3 col-sm-2 col-md-3">
+                    <h3>Contactanos</h3>
+                    <ul>
+                        <li><i class="fa fa-phone"></i>  +54 11 2250 5577</li>
+                        <li><i class="fab fa-whatsapp"></i>   1122505577</li>
+                        <li><i class="fa fa-envelope"></i> ventas@sweetbaby.com</li>    
+                        <li><i class="fa fa-map-marker"></i> Uspallata 2953, C.A.B.A.</li>
+                    </ul>
+                    <span>Lunes a Jueves: 10 a 19hs. Viernes: 10 a 16hs. Domingo: 13.30 a 19hs. Feriados: consultar</span>
+                </div>
+                <div class="col-lg-2 col-sm-2 col-md-2">
+                    <h3>Síguenos</h3>
+                    <p>
+                        <a href="#">
+                            <img src="./img/face.png" alt="face" width="40" height="40">&nbsp;
+                        </a>
+                        <a href="#">
+                            <img src="./img/insta-1.png" alt="insta" width="40" height="40">
+                        </a>
+                    </p>   
+                </div>
+                <div class="col-lg-4 col-sm-2 col-md-3">
+                    <h3>Suscribete a nuestro Newsletter</h3>
+                    <p>Recibí todas las novedades de eventos y promociones</p>
+                    <div class="subscribe">
+                        <div class="input-box">
+                           <input type="text" name="email" id="newsletter" title="Suscríbase a nuestro boletín de noticias" class="input-text required-entry validate-email">
+                        </div>
+                        <div class="actions">
+                            <button type="submit" title="Suscribirse" class="button">
+                                <span>
+                                    <span>Suscribirse</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>                
+            </div>            
+        </div>
+    </footer>
+
+    <script defer src="../../fontawesome-free-5.13.0-web/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
