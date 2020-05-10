@@ -103,15 +103,15 @@ ul {
   transform:scale(1.1);
   }
 
-/*.container{
+.sing-in{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   margin-top: 30px;
 }
 
-#form{
+.sing-in #form{
   
 }
-*/
+
 
