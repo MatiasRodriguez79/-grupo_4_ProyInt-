@@ -111,7 +111,11 @@ ul {
 }
 
 .sing-in #form{
-  
+  margin-top: 10px;
+  border: solid 1px black;
+  padding: 100px;
+
+
 }
 
 
