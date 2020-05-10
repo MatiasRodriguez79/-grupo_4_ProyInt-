@@ -1,72 +1,109 @@
+
+@import "./navbar.css";
+@import "./footer.css";
+@import "./bag.css";
+
+
 body{
   font-family: 'Helvetica' !important;
-  font-size: 12px;
+  font-size: 12px; 
+  background-color: #f6f6f6;  
 }
 
-.logo-container{
-  width: 300px;
-  justify-content: center;
-  background-color: white;
-  display: flex;
+main{
+  min-height: 500px;
 }
 
-.logo{
-  margin: 19px 20px 0px 0px;  
-}
-
-.logo img{
-  width: 155px;
-}
-
-header{
-  background-color: white;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-ul {
-  
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-  display: flex;
-  background-color: white;
-}
-
-li {
-  border-left: 1px solid rgba(26,26,26,0.15);
-}
-
-li .active{
-  cursor: default;
-}
-
-li a{
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 30px 35px;
+a {
   text-decoration: none;
-  /* height: 77px; */
 }
 
-.banner{
-  
+ul {    
+  list-style-type: none;
 }
 
-.banner img{
+.carousel img{
   height: 800px;
+}
+
+.carousel-caption{
+  top: 40%;
+  /* text-align: center; */
+  /* color: white;   */
+}
+
+.img-container{
+  position: relative;
+  height: 800px;
+}
+
+.img-container img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.slogan-container
+{
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: white;  
+}
+
+.title{  
+  font-size: 60px;
+  font-family: 'Old Standard TT';    
+}
+
+
+.articule .card{
+  margin: 30px 0px 0px 0px;
+  /* background-color: lightcoral; */
+  overflow: hidden;
+  /* position: relative; */
+  height: 350px;
+  /* justify-content: space-between; */
+}
+
+.articule img{
+  /* position: absolute; */
   width: 100%;
 }
 
-.title{
-  position: absolute;
+.info-articule h3{  
+  text-transform: uppercase;
   color: white;
+  /* font-size: 1.5rem; */
+  font-size: calc(0.2rem + 1vw);
+  text-align: center;
 }
 
-.container{
+.info-articule{
+  top: 35%;
+  left: 50%;
+  position: absolute;
+  align-items: center;
+  width: 200px;
+}
+
+.info-articule button{
+  border-radius: 15px;
+  width: 100%;
+  background-color: grey;
+  border: 1px solid white;
+}
+
+.articule .card:hover img {
+  -webkit-transform:scale(1.1);
+  -moz-transform:scale(1.1);
+  -ms-transform:scale(1.1);
+  -o-transform:scale(1.1);
+  transform:scale(1.1);
+  }
+
+/*.container{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -76,3 +113,5 @@ li a{
 #form{
   
 }
+*/
+
