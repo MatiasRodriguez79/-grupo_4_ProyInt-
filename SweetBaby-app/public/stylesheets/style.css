@@ -106,16 +106,31 @@ ul {
 .sing-in{
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   justify-content: space-around;
   margin-top: 30px;
 }
 
 .sing-in #form{
   margin-top: 10px;
-  border: solid 1px black;
-  padding: 100px;
-
-
+  margin-bottom: 10px;
+  border: solid 3px black;
+  padding: 50px;
+  width: 50%;
+  border-radius: 10px;
 }
+
+.form-cont{
+  display: flex;
+  flex-direction:column;
+  padding: 0.5px;
+  border-radius: 500px;
+}
+
+#enviar{
+  border-radius: 3px;
+  color:  #191918;
+}
+
 
 
