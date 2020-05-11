@@ -19,7 +19,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>            
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto ">
+                <ul class="navbar-nav mr-auto " >
                     <li class="nav-item active"><a class="active nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#news">Store</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">About us</a></li>
@@ -44,20 +44,35 @@
             <div class="sing-in">
                 <section id="form">       
                     <form  action="">
+                     <div class="form-cont">
                         <label for="">Nombre</label>
-                        <input type="text" id="nombre" placeholder="Tu Nombre">
+                        <input type="text" id="nombre"  placeholder="Nombre">
                         <label for="">Apellido</label>
-                        <input type="text" id="apellido" placeholder="Tu Apellido"> <br>  
+                        <input type="text" id="apellido" placeholder="Apellido">  
+                     </div>
+                     <div class="form-cont">  
                         <label for="">Email</label>
-                        <input type="email" id="email" placeholder="Tu email" required>  
-                        <br>
-                        <input type="checkbox" name="boletin-noticias" value="acorde" id="Boletin-noticias"> Boletin de Noticias <br>
+                        <input type="email" id="email" placeholder="ejemplo@outlook.com" required>  
+                        <label for="">  Repetir Email</label>
+                        <input type="email" id="email" placeholder="Repetir email" required>
+                    </div>
+                        <div class="form-cont">
+                        <label for=""> Boletin de Noticias</label>
+                        <input type="checkbox" name="boletin-noticias" value="acorde" id="Boletin-noticias"> 
+                    </div>
+                        <div class="form-cont">
                         <label for="">Contraseña</label>
-                        <input type="password" id="password" placeholder="Tu Contraseña">   
+                        <input type="password" id="password" placeholder="Contraseña" required>   
                         <label for="">Repetir Contraseña</label>
-                        <input type="password" id="password" placeholder="Repetir Contraseña"> <br>
-                        <input type="checkbox" name="aceptar-condiciones" value="acepta" id="aceptar-condiciones"> Aceptar Condiciones <br>
-                        <input type="submit" id="enviar" value="enviar" required>
+                        <input type="password" id="password" placeholder="Repetir Contraseña" required> 
+                    </div>
+                        <div class="form-cont">
+                        <label for=""> Aceptar Condiciones </label>
+                        <input type="checkbox" name="aceptar-condiciones" value="acepta" id="aceptar-condiciones" required>  
+                    </div>  
+                    <div class="form-cont" id= "enviar">   
+                    <input type="submit" id="enviar" value="enviar" required>
+                     </div>
                     </form>
                 </section>
             </div>    
