@@ -1,10 +1,21 @@
 {
-  "name": "SweetBaby-app",
-  "version": "0.0.0",
+  "name": "sweet-baby",
+  "version": "1.0.0",
+  "description": "Tienda de productos para bebes",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon bin/www"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatiasRodriguez79/grupo_4_ProyInt.git"
+  },
+  "author": "Ysmael Alcala, Matias Rodriguez, Bruno Aranda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatiasRodriguez79/grupo_4_ProyInt/issues"
+  },
+  "homepage": "https://github.com/MatiasRodriguez79/grupo_4_ProyInt#readme",
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
