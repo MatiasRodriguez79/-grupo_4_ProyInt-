@@ -1,6 +1,6 @@
 footer {
     margin-top: 30px;
-    background-image: url('../../views/img/footer.png');
+    background-image: url('/images/footer.png');
     height: 100%;
     display: flex;
     text-align: center;
