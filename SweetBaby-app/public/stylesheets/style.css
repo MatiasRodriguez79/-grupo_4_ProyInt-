@@ -2,6 +2,8 @@
 @import "./navbar.css";
 @import "./footer.css";
 @import "./bag.css";
+@import "./styleDetalleProducto.css";
+@import "./styleCargaProd.css";
 
 
 body{
