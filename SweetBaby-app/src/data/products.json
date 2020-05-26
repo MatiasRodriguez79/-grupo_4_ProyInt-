@@ -1,0 +1,63 @@
+[
+ {
+  "idproducts": 1,
+  "category": "Butacas",
+  "name": "Butaca con Buster Duck",
+  "priceVenta": 300,
+  "priceCompra": 200,
+  "dateAlta": "2020-05-25",
+  "stock": "10",
+  "cuotas": "S",
+  "descuento": "10",
+  "descripcion": " ",
+  "infoAdic": " SADSAD",
+  "idcategory": "",
+  "image": "default-image.png"
+ },
+ {
+  "idproducts": 2,
+  "category": "Cochecitos",
+  "name": "Cochecito Duck Legend",
+  "priceVenta": 4000,
+  "priceCompra": 2000,
+  "dateAlta": "2020-05-25",
+  "stock": "10",
+  "cuotas": "S",
+  "descuento": "15",
+  "descripcion": " ADs",
+  "infoAdic": " dfasfasd",
+  "idcategory": "",
+  "image": "default-image.png"
+ },
+ {
+  "idproducts": 3,
+  "category": "Accesorios",
+  "name": "Bañera Plegable 25 litros",
+  "priceVenta": 5000,
+  "priceCompra": 3000,
+  "dateAlta": "2020-05-24",
+  "stock": "10",
+  "descuento": "5",
+  "cuotas": "S",
+  "descripcion": "asdsad ",
+  "infoAdic": "sadasd ",
+  "idcategory": "",
+  "image": "imagen-1590450119538.jpg"
+ },
+ {
+  "idproducts": 4,
+  "category": "Ropa",
+  "name": "Ajuar Gamise 5 Piezas",
+  "priceVenta": 700,
+  "priceCompra": 300,
+  "dateAlta": "2020-05-24",
+  "stock": "20",
+  "descuento": "0",
+  "cuotas": "S",
+  "descripcion": " asdasdsa",
+  "infoAdic": " asdasdsa",
+  "idcategory": "",
+  "image": "imagen-1590456546204.jpg"
+ }
+ 
+]
