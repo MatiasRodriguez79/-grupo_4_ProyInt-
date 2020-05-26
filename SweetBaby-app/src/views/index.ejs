@@ -6,11 +6,11 @@
 	<!-- /Header -->
     
     <div class="banner">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div id="carouselControlsIndex" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleControls" data-slide-to="1"></li>
-                <li data-target="#carouselExampleControls" data-slide-to="2"></li>
+                <li data-target="#carouselControlsIndex" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselControlsIndex" data-slide-to="1"></li>
+                <li data-target="#carouselControlsIndex" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -27,11 +27,11 @@
                     <img class="d-block w-100" src="/images/bebes2.jpg" alt="Third slide">
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselControlsIndex" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carouselControlsIndex" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
@@ -47,7 +47,10 @@
                         <img class="card-img-top" src="https://picsum.photos/id/1001/600/350" alt="">
                         <div class="info-articule">
                             <h3>Butacas</h3>
-                            <button type="submit" class="btn btn-primary">VER MÁS</button>
+                            <form action="/products?" method="GET">
+                                <input type="hidden" name="cat" value="1" /> 
+                                <button type="submit" class="btn btn-primary">VER MÁS</button>
+                            </form>
                         </div>  
                     </div>              
                 </div>
@@ -57,7 +60,10 @@
                         <img class="card-img-top" src="https://picsum.photos/id/1002/600/350" alt="">
                         <div class="info-articule">
                             <h3>Juguetes</h3>
-                            <button type="submit" class="btn btn-primary">VER MÁS</button>
+                            <form action="/products?" method="GET">
+                                <input type="hidden" name="cat" value="2" /> 
+                                <button type="submit" class="btn btn-primary">VER MÁS</button>
+                            </form>
                         </div>  
                     </div>  
                 </div>
@@ -67,7 +73,10 @@
                         <img class="card-img-top" src="https://picsum.photos/id/1003/600/350" alt="">
                         <div class="info-articule">
                             <h3>Cochecitos</h3>
-                            <button type="submit" class="btn btn-primary">VER MÁS</button>
+                            <form action="/products?" method="GET">
+                                <input type="hidden" name="cat" value="3" /> 
+                                <button type="submit" class="btn btn-primary">VER MÁS</button>
+                            </form>
                         </div>  
                     </div>   
                 </div>
@@ -78,7 +87,10 @@
                         <img class="card-img-top" src="https://picsum.photos/id/1004/600/350" alt="">
                         <div class="info-articule">
                             <h3>Ropa</h3>
-                            <button type="submit" class="btn btn-primary">VER MÁS</button>
+                            <form action="/products?" method="GET">
+                                <input type="hidden" name="cat" value="4" /> 
+                                <button type="submit" class="btn btn-primary">VER MÁS</button>
+                            </form>
                         </div>  
                     </div>   
                 </div>
@@ -88,7 +100,10 @@
                         <img class="card-img-top" src="https://picsum.photos/id/1005/600/350" alt="">
                         <div class="info-articule">
                             <h3>Accesorios</h3>
-                            <button type="submit" class="btn btn-primary">VER MÁS</button>
+                            <form action="/products?" method="GET">
+                                <input type="hidden" name="cat" value="5" /> 
+                                <button type="submit" class="btn btn-primary">VER MÁS</button>
+                            </form>
                         </div>  
                     </div>   
                 </div>
@@ -98,7 +113,10 @@
                         <img class="card-img-top" src="https://picsum.photos/id/1006/600/350" alt="">
                         <div class="info-articule">
                             <h3>Colechos y Practicunas</h3>
-                            <button type="submit" class="btn btn-primary">VER MÁS</button>
+                            <form action="/products?" method="GET">
+                                <input type="hidden" name="cat" value="6" /> 
+                                <button type="submit" class="btn btn-primary">VER MÁS</button>
+                            </form>
                         </div>  
                     </div>
                 </div>
