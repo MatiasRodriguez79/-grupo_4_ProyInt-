@@ -2,10 +2,42 @@
 @import "./navbar.css";
 @import "./footer.css";
 @import "./bag.css";
+@import "./styleDetalleProducto.css";
+@import "./styleCargaProd.css";
+@import "./products.css";
+/*====== Fonts ======*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
 
 
-body{
-  font-family: 'Helvetica' !important;
+/*====== Variables ======*/
+:root {
+  --yellow: #EAC926;
+  --dark-blue: #03264C;
+  --light-blue: #1259c3;
+  --gray: #666666;
+  --light-gray: #ebebeb;
+  --green: #39b54a;
+  --base-font-family: 'Roboto', sans-serif
+}
+
+
+/*====== Basics ======*/
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+body {
+  font-family: var(--base-font-family);
+  font-weight: 300;
+  /* background-color: var(--light-gray); */
+  
+  /* font-family: 'Helvetica' !important; */
   font-size: 12px; 
   background-color: #f6f6f6;  
 }
@@ -54,7 +86,6 @@ ul {
 
 .title{  
   font-size: 60px;
-  font-family: 'Old Standard TT';    
 }
 
 

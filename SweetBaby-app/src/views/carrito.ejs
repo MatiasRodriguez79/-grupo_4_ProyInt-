@@ -1,0 +1,98 @@
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Inicio'}) %>
+<body>
+    <!-- Header -->
+	<%- include('partials/headerNavbar') %>
+    <!-- /Header -->
+    
+    <main>        
+        <section>
+            <div class="container" id="myContainer">
+                <h1 class="cart-title">Mi Carrito</h1>
+                <div class="row">
+                    <div class="col-lg-8 col-md-8">
+                        <% if(products.length == 0) { %>
+                            <div class="cart-empty">
+                                <p>No hay productos en tu carrito.</p>
+                            </div>                        
+                        <% } else { 
+                        for (product of products) { %>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="cart-item-detail">
+                                        <div class="cart-item-column">
+                                            <picture class="cart-item-image">
+                                                <a href="/products/detail/<%=product.id%>" title="<%= product.name%>" target="_blank">
+                                                    <img src="/images/products/<%=product.image%>" alt="Img Alt" itemprop="image">
+                                                </a>
+                                            </picture>
+                                        </div> 
+                                        <div class="cart-item-column cart-item-column-lg">
+                                            <h3 class="cart-item-name">
+                                                <a href="/products/detail/<%=product.id%>" title="Producto ID" itemprop="url" target="_blank" rel="noopener noreferrer"><%= product.name%></a>
+                                            </h3>
+                                        </div>
+                                        <div class="cart-item-column-sm">
+                                            <label>Precio:</label>
+                                            <span class="cart-item-column-data precio-texto"><%= thousandGenerator(product.priceVenta) %> $</span>
+                                        </div>
+                                        <div class="cart-item-column-sm">
+                                            <label>Cantidad:</label>
+                                            <select class="form-control form-control--sm" id="idQuantity">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                            </select>
+                                        </div>
+                                        <div class="cart-item-column-sm">
+                                            <label>Subtotal:</label>
+                                            <strong class="cart-item-column-data precio-texto"><%= thousandGenerator(product.priceVenta) %> $</strong>
+                                        </div>
+                                        <button class="gui-icon" data-target="#delete-product" onclick="alert('Aqui se eliminara el producto')">
+                                            <i class="far fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } }%>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4">
+                        <div class="resumen">
+                            <div class="card cart-resumen">
+                                <div class="cart-resumen-header">
+                                    <span class="cart-resumen-title">Resumen de compra</span>
+                                </div>
+                                <ul class="resumen-detail">
+                                    <li id="subtotal">
+                                        <label>Subtotal</label>
+                                        <span class="resumen-detail-value">$<%= thousandGenerator(totalAmount) %></span>
+                                    </li>
+                                    
+                                    <li class="resumen-total" id="total">
+                                        <label>Total</label>
+                                        <span class="resumen-detail-value">$<%= thousandGenerator(totalAmount) %></span>
+                                    </li>
+                                </ul>                                
+                            </div> 
+                            <div class="cart-actions">
+                                <button class="btn btn-link" onclick="alert('Aqui seguiria comprando!')">COMPRAR MÁS PRODUCTOS</button>
+                                <button type="button" class="btn btn-primary" onclick="alert('Aqui avanzamos con el pago')">Continuar</button>
+                            </div>                                  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <%- include('partials/footer') %>
+    <!-- /footer -->
+</body>
+</html>

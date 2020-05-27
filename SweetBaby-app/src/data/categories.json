@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Butacas"
+    },
+    {
+        "id": 2,
+        "name": "Juguetes"
+    },
+    {
+        "id": 3,
+        "name": "Cochecitos"
+    },
+    {
+        "id": 4,
+        "name": "Ropa"
+    },
+    {
+        "id": 5,
+        "name": "Accesorios"
+    },
+    {
+        "id": 6,
+        "name": "Colechos y Practicunas"
+    }
+]
