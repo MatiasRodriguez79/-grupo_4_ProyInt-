@@ -150,6 +150,14 @@ ul {
   width: 50%;
   border-radius: 10px;
 }
+.sing-in #login{
+  margin-top: 10px;
+  margin-right: 0.5px;
+  border: solid 3px black;
+  padding: 50px;
+  width: 50%;
+  border-radius: 10px;
+}
 
 .form-cont{
   display: flex;
@@ -161,6 +169,7 @@ ul {
 #enviar{
   border-radius: 3px;
   color:  #191918;
+  margin-top: 5px;
 }
 
 
