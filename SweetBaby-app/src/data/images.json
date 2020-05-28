@@ -28,5 +28,52 @@
         "idProducto": 3,
         "img" : "default-image.png",
         "order" : 1
+    },
+    {
+        "idProducto": 4,
+        "img" : "cochecitoDuckLegendhasta20kg_1.jpg",
+        "order" : 1
+    },
+    {
+        "idProducto": 4,
+        "img" : "cochecitoDuckLegendhasta20kg_2.jpg",
+        "order" : 2
+    },
+    {
+        "idProducto": 5,
+        "img" : "cochecitoDuckLegendhasta20kg_3.jpg",
+        "order" : 1
+    },
+    {
+        "idProducto": 5,
+        "img" : "BañeraconReductor.jpg",
+        "order" : 2
+    },
+    {
+        "idProducto": 6,
+        "img" : "BañeraPlegable20lt_1.jpg",
+        "order" : 1
+    },
+    {
+        "idProducto": 7,
+        "img" : "default-image.png",
+        "order" : 1
+    },
+    {
+        "idProducto": 8,
+        "img" : "BañeraPlegable20lt_1.jpg",
+        "order" : 1
+    },
+    {
+        "idProducto": 8,
+        "img" : "default-image.png",
+        "order" : 2
+    }
+
+    ,
+    {
+        "idProducto": 9,
+        "img" : "default-image.png",
+        "order" : 1
     }
 ]
