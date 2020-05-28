@@ -1,0 +1,141 @@
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Producto'}) %>
+<body>
+    <!-- Header -->
+	<%- include('partials/headerNavbar') %>
+    <!-- /Header -->
+    
+    <main class="principal">
+        <div class="container">
+            <div class="row">
+                <div class="gallery card cart-resumen col-8">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <!-- <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleControls" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleControls" data-slide-to="2"></li>
+                        </ol> -->
+                        <div class="carousel-inner">
+                            <% for (img of product.imgs) { %>
+                                <div class="carousel-item <% if(img.order == 1) { %> active <% } %>">
+                                    <img class="d-block w-100" src="/images/products/<%= img.img%>">
+                                </div>
+                            <% } %>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <!-- <hr> -->
+                    <div class="row descripcion">
+                        <div class="col-5">
+                            <h3>Descripción</h3>
+                        </div>
+                        <div class="col-7">
+                            <span><%= product.descripcion%></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="descripcionItem card cart-resumen col-4 car">               
+                    <h1><%= product.name%></h1>  
+                        
+                    <ul class="actions-list">
+                        <li><p class="precio">$<%= thousandGenerator(product.priceVenta) %> 
+                            <% if(product.descuento > 0) { %>
+                                <span class="offspan"><%= product.descuento%>% OFF</span>
+                            <% } %>
+                            </p> 
+                        </li>
+                        <li>
+                            <% if(product.stock > 15) { %>
+                                <p class="disponibilidad">Stock Disponible (<%= product.stock%>)</p> 
+                            <% } else { %>
+                                <p class="disponibilidad">Quedan pocos en stock (<%= product.stock%>)</p> 
+                            <% } %>
+                            
+                        </li>
+                        <li><i class="fas fa-credit-card"></i>
+                            <% if(product.cuotas == 'S') { %>
+                                <p class= "beneficios">Pagá en 12 cuotas sin interes</p>
+                            <% } %>
+                        </li>
+                        <li><p class="beneficios">Envio Gratis a todo el País</p></li>
+                        <li><i class="fas fa-store"></i><p class="beneficios">Retiro gratis en locales del vendedor</p></li>
+                        <li><p class="beneficios">Devolución Gratis</p></li>
+                    </ul>
+                        
+                    <div> 
+                        <label class="cantidad">Cantidad:</label>
+                        <select class="selectDetalle form-control--sm" >
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>                 
+                    <div class="barraBotonesDetalle">
+                        <button type="button" class="btn btn-success btnComprar" onclick="alert('Aqui vamos al carrito')">Añadir al carrito </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <h3>Otros productos similares</h3>
+                </div>
+                <div class="row card-group">
+                    <div class="col-4">
+                        <div class="card">
+                            <img src="/images/products/BañeraconReductor.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Producto 1</h5>
+                                <p class="card-text">$ Precio</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                        <div class="card">
+                            <img src="/images/products/BañeraconReductor.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Producto 2</h5>
+                                <p class="card-text">$ Precio</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                        <div class="card">
+                            <img src="/images/products/BañeraconReductor.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Producto 2</h5>
+                                <p class="card-text">$ Precio</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- <main>
+    <div class="container-fluid">
+        
+    </main> -->
+              
+
+    <!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>
+</html>

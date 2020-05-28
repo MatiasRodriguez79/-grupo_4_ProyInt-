@@ -1,0 +1,140 @@
+/* Left Navbar */
+ .list {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    font-size: 14px;
+    /* background-color: white; */  
+  }
+
+  .list li{
+    margin: 0px 0px 13px;
+  }
+
+  .list li a{
+    color: var(--gray);
+    text-decoration: none;
+    /* background-color: white; */  
+  }
+
+  .list li .active{
+    color: black;
+    font-weight: bolder;    
+    /* background-color: white; */  
+  }
+
+  .left-navbar .subtitle{
+    margin: 32px 0px 10px;
+    font-size: 18px;
+  }
+
+  .left-navbar .title{
+    margin: 0px 0px 10px;
+    font-size: 18px;
+  }
+
+/*====== Products ======*/
+.products-container{
+    min-height: 1300px;
+}
+
+.products-wrapper {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .products-title {
+    font-size: 2.4em;
+    font-weight: 400;
+    color: var(--gray);
+  }
+  
+  .product-box {
+    background-color: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: 300ms;
+    margin: 20px 0;
+  }
+  
+  .product-box a {
+    display: block;
+  }
+  
+  .product-box_image {
+    border-bottom: 1px solid var(--light-gray);
+  }
+  
+  .product-box_data {
+    padding: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .product-box_data h2 {
+    font-size: 2.4em;
+    font-weight: 300;
+    margin: 0;
+  }
+  
+  .product-box_data span {
+    font-size: 1.5em;
+    font-weight: 300;
+    color: var(--green);
+    margin: 0 0 0 10px;
+  }
+  
+  .product-box_data p {
+    font-size: 1.5em;
+    width: 100%;
+    color: var(--gray);
+    margin: 0;
+    height: 0;
+    transition: 300ms;
+    overflow: hidden;
+  }
+  
+  .product-box button {
+    color: var(--gray);
+    font-size: 1.5em;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    border: solid 1px;
+    border-radius: 50%;
+    position: absolute;
+    top: 40px;
+    right: 25px;
+    background-color: rgba(218, 218, 218, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 300ms;
+    display: none;
+  }
+  
+  .product-box:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .product-box:hover p {
+    height: 40px;
+    margin-top: 15px;
+  }
+  
+  .product-box:hover button {
+    /* transform: rotate(360deg); */
+    display: block;
+  }
+
+  .product-box button:hover {
+    transform: rotate(360deg);
+    box-shadow: 0 0 5px red;
+  }
+
+  .product-box_image img{
+    width: 100%;
+  }
