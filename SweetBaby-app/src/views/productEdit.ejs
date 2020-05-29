@@ -1,0 +1,181 @@
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Modificacion de Productos'}) %>
+<body class = "bodyCargaProductos"> 
+    <!-- Header -->
+	<%- include('partials/headerNavbar') %>
+	<!-- /Header -->
+    
+    <div class="titulo container-fluid">
+        <h4>Modificacion de Productos:</h4>
+    </div>
+<div class=" main container-fluid">
+    <!--<form action="/products/create" method="POST" enctype= "multipart/form-data">-->
+    <form method="POST"  action="/products/edit/<%= productToEdit.id%>?_method=PUT" >
+  
+    
+        
+<div class="row">
+
+        <div class="col-lg-6 col-md-8 col-sm-12 division1">
+                <div class="row">
+                    <div class = "col-4">
+                        <label  for="category">Categoria:</label> 
+                    </div>  
+                    <div class="col-8">               
+                        <select  class= "custom-select select" name="category" id= "category"  required>
+                            <option value="Butacas">Butacas</option>
+                            <option value="Juguetes">Juguetes</option>
+                            <option value="Cochecitos">Cochecitos</option>
+                            <option value="Ropa">Ropa</option>   
+                            <option value="Accesorios">Accesorios</option>   
+                            <option value="Colechos/Practicunas">Colechos y Practicunas</option>       
+                        </select>  
+                    </div> 
+                                                 
+                </div>
+                <br>
+            
+                <div class="row"> 
+                    <div class="col-4" >
+                         <label for="name">Nombre:</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="inputTexto" type="text"  id="name" name = "name"  placeholder="Ej: Cochecito Paraguita Duck" value="<%= productToEdit.name %>"required> 
+                    </div>                  
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4">
+                        <label for="priceVenta">Precio de Venta:</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="inputNumerico" type="number"  id="priceVenta" name = "priceVenta" value="<%= productToEdit.priceVenta %>" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class= "col-4">
+                        <label  for="priceCompra">Precio de Compra:</label>
+                    </div>
+                    <div class="col-8">
+                        <input class=" inputNumerico"  type="number"  id="priceCompra" name = "priceCompra" value="<%= productToEdit.priceCompra %>" required>   
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <label  for="dateAlta">Fecha de alta:</label>
+                    </div>
+                    <div class="col-8">
+                        <input class=" inputNumerico"  type="date"  id="dateAlta" name = "dateAlta" value="<%= productToEdit.dateAlta %>"required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class = "col-4">
+                        <label  for="stock">Stock:</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="inputNumerico"  type="number"  id="stock" name = "stock" value="<%= productToEdit.stock %>" required>   
+                    </div>             
+                </div>
+                <br>
+                <div class="row">    
+                    <div class="col-4" >          
+                        <label for="descuento">Descuento:</label>
+                    </div> 
+                    <div class="col-8">
+                        <input class="inputNumerico"  type="descuento"  id="stock" name = "descuento"placeholder="Es un %" value="<%= productToEdit.descuento %>"" required>  
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4">
+                        <label  for="cuotas">Disponible en cuotas:</label>
+                    </div>
+                    <div class="col-8">
+                        <input  type="radio" name="cuotas" id="si" value="S" checked> <label for="si" >Sí</label>
+                        <input type="radio" name="cuotas" id="no" value="N"> <label for="no">No</label>
+                    </div>
+                </div>
+
+                
+           
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-sm-12 division2">
+
+          <div class="row">
+                <div class="col-4">
+                    <label for="descripcion">Descripcion del Producto:</label>
+                </div>
+                <div class="col-8">
+                     <textarea class="rounded" name ="descripcion"> "<%= productToEdit.descripcion %>" </textarea>
+                     
+                </div>
+         </div>
+
+          <div class="row">
+              <div class="col-4">
+                <label for="infoAdic">Informacion Adicional:</label></p>
+              </div>
+              <div class="col-8">
+                 <textarea class="rounded" name ="infoAdic" id = "" cols = "40" rows= "5"value="infoAdic" > "<%= productToEdit.infoAdic %>"</textarea>
+              </div>
+          </div>
+
+          
+          </div>
+        </div>
+     </div>   
+
+        <div class="barraBotones">
+            <p> 
+            <input class="btn btn-primary" type="submit" value="Modificar">
+            <!-- <input class="btn btn-success" type="submit" value="+Nuevo">-->
+            <!--<input class="btn btn-danger" type="submit" value="Eliminar">-->
+             </p>
+        <div>
+    </form>
+
+    <div>
+        <table class="table table-striped table-bordered">
+            <thead class= "thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio Venta</th>
+                <th scope="col">Precio Compra</th>
+                <th scope="col">Fecha Alta</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Cuotas</th>
+                <th scope="col">Descuento %</th>
+                <th scope="col">Img</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for (product of products) { %>
+            <tr>
+                <th scope="row"><%=product.id%></th>
+                <td><%=product.category%></td>
+                <td><%=product.name%></td>
+                <td>$<%=thousandGenerator (product.priceVenta) %></td>
+                <td>$<%=thousandGenerator (product.priceCompra) %></td>
+                <td><%=product.dateAlta%></td>
+                <td><%=product.stock%></td>
+                <td><%=product.cuotas%></td>
+                <td><%=product.descuento%></td>
+                <td>Imagen.jpg</td>
+            </tr>
+            <% } %>
+            </tbody>
+        </table>
+        </div>
+    </div>
+    <!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+    
+</body>
+</html>
