@@ -58,9 +58,9 @@
     margin: 20px 0;
   }
   
-  .product-box a {
+  /* .product-box a {
     display: block;
-  }
+  } */
   
   .product-box_image {
     border-bottom: 1px solid var(--light-gray);
@@ -127,6 +127,7 @@
   
   .product-box:hover button {
     /* transform: rotate(360deg); */
+    z-index: 1;
     display: block;
   }
 
@@ -138,3 +139,14 @@
   .product-box_image img{
     width: 100%;
   }
+
+  #carouselListProducts{
+    width: 100%;
+  }
+
+  .product-box_image .carousel img {
+    /* height: 800px; */
+    width: 100%;
+    height: 295px;
+}
+

@@ -26,7 +26,6 @@ app.set('view engine', 'ejs');
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************
 const mainRouter = require('./routes/main'); // Rutas main
-//const usersRouter = require('./routes/users'); // Rutas /products
 const productsRouter = require('./routes/products'); // Rutas /products
 
 //app.use('/users', usersRouter);

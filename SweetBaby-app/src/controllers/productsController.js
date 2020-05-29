@@ -13,18 +13,26 @@ const imgs = JSON.parse(fs.readFileSync(imgsFilePath, 'utf-8'));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
-// Root - Show all products
+
+	// List - Show all products Table
 	list: (req, res) => {
-	res.render('productsList',{
-		products,
-			thousandGenerator: toThousand
-	});
-},
+		res.render('productsList',{
+			products,
+				thousandGenerator: toThousand
+		});
+	},
 
 	// Root - Show all products
 	root: (req, res, next) => {
+		// console.log(req.url);
 		res.render('products',{
-			products: products.filter(x => req.query.cat ? x.idCategory == req.query.cat : x),
+			currentUrl: req.url,
+			products: products.filter(x => req.query.cat ? x.idCategory == req.query.cat : x).map(x => {
+				return {
+					...x,
+					imgs : imgs.filter(y => y.idProducto == x.id)
+				}
+			}),
 			titleCategory: req.query.cat ? categories.find(x=> x.id == req.query.cat).name : "Todas las categorías",
 			thousandGenerator: toThousand
 		});
