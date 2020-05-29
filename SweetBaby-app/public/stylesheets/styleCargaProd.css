@@ -25,8 +25,9 @@
     margin-top: 20px;
     align-content: space-between;
 }
+
 .bodyCargaProductos{
-    background-color: white;
+    /* background-color: white; */
     color: rgb(109, 87, 189);
     font-size: 15px;
 }
@@ -91,6 +92,12 @@
     padding-top: 5px;
   }
 
- 
-  
-  
+.contentEditable textarea{
+  /* display: inline-block; */
+  /* border: solid 1px #000; */
+  min-height: 100px;
+  height: 150px;
+  width: 300px;
+  max-height: 200px;
+  color: black;
+}

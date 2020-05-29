@@ -1,18 +1,16 @@
 [
  {
   "id": 1,
+  "category": "Juguetes",
   "name": "Duck Legend",
-  "category": "Cochecitos",
-  "idCategory": 1,
   "priceVenta": 4125,
   "priceCompra": 3000,
   "dateAlta": "2020-05-24",
-  "stock": "3423",
+  "stock": 3423,
+  "descuento": "0",
   "cuotas": "S",
-  "descuento": 0,
-  "descripcion": "Marca: Duck \nModelo: Legend \nTipo de cochecito: Paragüitas \nPeso: máximo soportado 15 kg. \nCantidad de posiciones de reclinado: 6 \nTipo de sistema de seguridad: Arnés de 3 puntos \nTipo de ruedas: Cuádruple \nCantidad de ruedas: 8 \nPeso: 7 kg \nAccesorios incluidos: Canasto",
-  "infoAdic": " sfsf",
-  "image": "cochecitoDuckLegendhasta20kg_1.jpg"
+  "descripcion": "Marca: Duck \r\nModelo: Legend \r\nTipo de cochecito: Paragüitas \r\nPeso: máximo soportado 15 kg. \r\nCantidad de posiciones de reclinado: 6 \r\nTipo de sistema de seguridad: Arnés de 3 puntos \r\nTipo de ruedas: Cuádruple \r\nCantidad de ruedas: 8 \r\nPeso: 7 kg \r\nAccesorios incluidos: Canasto ",
+  "infoAdic": " sfsf"
  },
  {
   "id": 2,
@@ -89,17 +87,61 @@
  },
  {
   "id": 7,
-  "category": "Ropa",
+  "idCategory": 1,
   "name": "Remera Niño",
   "priceVenta": 300,
   "priceCompra": 100,
   "dateAlta": "2020-05-28",
-  "stock": "10",
-  "descuento": "5",
+  "stock": 10,
+  "descuento": 100,
   "cuotas": "S",
-  "descripcion": " asdasdas",
+  "descripcion": " asdasdas   ",
   "infoAdic": " adasdasd",
-  "idCategory": "",
-  "image": "imagen-1590703138423.jpg"
+  "category": "Butacas"
+ },
+ {
+  "id": 8,
+  "idCategory": 6,
+  "name": "Galletas Chocolate",
+  "priceVenta": 223,
+  "priceCompra": 100,
+  "dateAlta": "2020-05-27",
+  "stock": "50",
+  "descuento": 10,
+  "cuotas": "N",
+  "descripcion": " rico rico rico",
+  "infoAdic": " asdasd",
+  "category": "Colechos y Practicunas",
+  "image": "imagen-1590719106972.jpg"
+ },
+ {
+  "id": 9,
+  "idCategory": 1,
+  "name": "asdasd",
+  "priceVenta": 11212,
+  "priceCompra": 123,
+  "dateAlta": "2020-01-01",
+  "stock": 122,
+  "descuento": 10,
+  "cuotas": "S",
+  "descripcion": "wafafgsf",
+  "infoAdic": " sdfbASD",
+  "category": "Butacas",
+  "image": "imagen-1590719662036.jpg"
+ },
+ {
+  "id": 11,
+  "idCategory": 5,
+  "name": "camisa",
+  "priceVenta": 2150,
+  "priceCompra": 2000,
+  "dateAlta": "2020-05-10",
+  "stock": 100,
+  "descuento": 15,
+  "cuotas": "S",
+  "descripcion": " color azul",
+  "infoAdic": " ",
+  "category": "Accesorios",
+  "image": "imagen-1590720061034.jpg"
  }
 ]

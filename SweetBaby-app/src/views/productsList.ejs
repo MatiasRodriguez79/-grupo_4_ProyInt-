@@ -1,62 +1,80 @@
 <!-- Include Head -->
 <%- include('partials/head', {title: 'Modificacion de Productos'}) %>
-<body class = "bodyCargaProductos"> 
+<body> 
     <!-- Header -->
 	<%- include('partials/headerNavbar') %>
-	<!-- /Header -->
+    <!-- /Header -->
     
-    <div class="titulo container-fluid">
-        <h4>Listado de Productos:</h4>
-    </div>
-<div class=" main container-fluid">
-    <form action="/products/create" >
-        <div class="barraBotones">
-            <p> 
-            <input class="btn btn-primary" type="submit" value="Crear Producto">
-        
-            </p>
+    <main class="bodyCargaProductos">
         <div>
-    </form>   
-    <div class="container"></div>
-    <div>
-        <table class="table table-striped table-bordered">
-            <thead class= "thead-dark">
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Precio Venta</th>
-                <th scope="col">Precio Compra</th>
-                <th scope="col">Fecha Alta</th>
-                <th scope="col">Stock</th>
-                <th scope="col">Cuotas</th>
-                <th scope="col">Descuento %</th>
-                <th scope="col" >Acciones</th>
-            </tr>
-            </thead>
-            <tbody>
-            <% for (product of products) { %>
-            <tr>
-                <th scope="row"><%=product.id%></th>
-                <td><%=product.category%></td>
-                <td><%=product.name%></td>
-                <td>$<%=thousandGenerator (product.priceVenta) %></td>
-                <td>$<%=thousandGenerator (product.priceCompra) %></td>
-                <td><%=product.dateAlta%></td>
-                <td><%=product.stock%></td>
-                <td><%=product.cuotas%></td>
-                <td><%=product.descuento%></td>
-                <td ><a  href="/products/edit/">metele magia</a></td>
-            </tr>
-            <% } %>
-            </tbody>
-        </table>
+            <div class="titulo container-fluid">
+                <h4>Listado de Productos:</h4>
+            </div>
+    
+            <div class="main">                  
+                <div class="container">
+                    <div class="barraBotones">
+                        <p>
+                            <a href="/products/create">
+                                <input class="btn btn-primary" type="submit" value="Crear Producto">
+                            </a>
+                        </p>                                                
+                    </div> 
+                    <div class="container-fluid">
+                        <table class="table table-striped table-bordered table-responsive">
+                            <thead class= "thead-dark">
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Categoria</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Precio Venta</th>
+                                    <th scope="col">Precio Compra</th>
+                                    <th scope="col">Fecha Alta</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">Cuotas</th>
+                                    <th scope="col">Descuento %</th>
+                                    <th scope="col" >Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for (product of products) { %>
+                                    <tr>
+                                        <th scope="row"><%=product.id%></th>
+                                        <td><%=product.category%></td>
+                                        <td><%=product.name%></td>
+                                        <td>$<%=thousandGenerator (product.priceVenta) %></td>
+                                        <td>$<%=thousandGenerator (product.priceCompra) %></td>
+                                        <td><%=product.dateAlta%></td>
+                                        <td><%=product.stock%></td>
+                                        <td><%=product.cuotas%></td>
+                                        <td><%=product.descuento%></td>
+                                        <td>
+                                            <div class="cart-item-detail-list">
+                                                <form action="/products/edit/<%=product.id%>" method="GET">
+                                                    <button class="gui-icon" data-target="#edit-product-list">
+                                                        <i class="far fa-edit"></i>
+                                                    </button> 
+                                                </form>                                                
+                                                <form action="/products/delete/<%=product.id%>?_method=DELETE" method="POST">
+                                                    <button class="gui-icon" data-target="#delete-product-list">
+                                                            <i class="far fa-trash-alt"></i>                                              
+                                                    </button>
+                                                </form>
+                                            </div>                                                                              
+                                        </td>
+                                    </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
+    
 
     <!-- footer -->
-	<%- include('partials/footer') %>
-	<!-- /footer -->
-    
+    <%- include('partials/footer') %>
+    <!-- /footer -->    
 </body>
 </html>
