@@ -22,6 +22,27 @@
     padding-bottom: 8px;
 }
 
+.cart-item-detail-list {
+    align-content: stretch;
+    align-items: center;
+    display: flex;
+    font-size: .875rem;
+    padding: 2px;
+}
+
+.cart-item-detail-list .gui-icon{
+    background-color: initial;
+    border: 0;
+    color: #4a90e2;    
+}
+
+.cart-item-detail picture {
+    display: block;
+    height: 80px;
+    position: relative;
+    width: 80px;
+}
+
 .cart-item-detail {
     align-content: stretch;
     align-items: center;

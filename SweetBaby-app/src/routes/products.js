@@ -15,7 +15,7 @@ let storage = multer.diskStorage({
       cb(null, '../public/images/products');
     },
     filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now()+ path.extname(file.originalname));
+      setTimeout(() => {  cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname)); }, 1000);      
     }
 });
   
@@ -42,7 +42,7 @@ router.get('/edit/:productId', productsController.edit); /* GET - Form to create
 router.put('/edit/:productId', productsController.update); /* PUT - Update in DB */
 
 /*** DELETE ONE PRODUCT***/ 
-//router.delete('/delete/:productId', productsController.destroy); /* DELETE - Delete from DB */
+router.delete('/delete/:productId', productsController.destroy); /* DELETE - Delete from DB */
 
 module.exports = router;
 

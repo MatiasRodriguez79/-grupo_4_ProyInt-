@@ -1,156 +1,144 @@
 <!-- Include Head -->
 <%- include('partials/head', {title: 'Carga de Productos'}) %>
-<body class = "bodyCargaProductos"> 
+<body> 
     <!-- Header -->
 	<%- include('partials/headerNavbar') %>
-	<!-- /Header -->
+    <!-- /Header -->
     
-    <div class="titulo container-fluid">
-        <h4>Carga de Productos:</h4>
-    </div>
-
-<div class=" main container-fluid">
-    <form action="/products/create" method="POST" enctype= "multipart/form-data">
-      
-        
-<div class="row">
-
-        <div class="col-lg-6 col-md-8 col-sm-12 division1">
-                <div class="row">
-                    <div class = "col-4">
-                        <label  for="category">Categoria:</label> 
-                    </div>  
-                    <div class="col-8">               
-                        <select  class= "custom-select select" name="category" id= "category" required>
-                            <option value="Butacas">Butacas</option>
-                            <option value="Juguetes">Juguetes</option>
-                            <option value="Cochecitos">Cochecitos</option>
-                            <option value="Ropa">Ropa</option>   
-                            <option value="Accesorios">Accesorios</option>   
-                            <option value="Colechos/Practicunas">Colechos y Practicunas</option>       
-                        </select>  
-                    </div> 
-                                                 
-                </div>
-                <br>
-            
-                <div class="row"> 
-                    <div class="col-4" >
-                         <label for="name">Nombre:</label>
-                    </div>
-                    
-                    <div class="col-8">
-                        <input class="inputTexto" type="text"  id="name" name = "name" placeholder="Ej: Cochecito Paraguita Duck" required> 
-                    </div>                  
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-4">
-                        <label for="priceVenta">Precio de Venta:</label>
-                    </div>
-                    <div class="col-8">
-                        <input class="inputNumerico" type="number"  id="priceVenta" name = "priceVenta" required>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class= "col-4">
-                        <label  for="priceCompra">Precio de Compra:</label>
-                    </div>
-                    <div class="col-8">
-                        <input class=" inputNumerico"  type="number"  id="priceCompra" name = "priceCompra" required>   
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-4">
-                        <label  for="dateAlta">Fecha de alta:</label>
-                    </div>
-                    <div class="col-8">
-                        <input class=" inputNumerico"  type="date"  id="dateAlta" name = "dateAlta" required>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class = "col-4">
-                        <label  for="stock">Stock:</label>
-                    </div>
-                    <div class="col-8">
-                        <input class="inputNumerico"  type="number"  id="stock" name = "stock" required>   
-                    </div>             
-                </div>
-                <br>
-                <div class="row">    
-                    <div class="col-4" >          
-                        <label for="descuento">Descuento:</label>
-                    </div> 
-                    <div class="col-8">
-                        <input class="inputNumerico"  type="descuento"  id="stock" name = "descuento"placeholder="Es un %" required>  
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-4">
-                        <label  for="cuotas">Disponible en cuotas:</label>
-                    </div>
-                    <div class="col-8">
-                        <input  type="radio" name="cuotas" id="si" value="S" checked> <label for="si" >Sí</label>
-                        <input type="radio" name="cuotas" id="no" value="N"> <label for="no">No</label>
-                    </div>
-                </div>
-
-                
-           
+    <main class="bodyCargaProductos">
+        <div class="titulo container-fluid">
+            <h4>Carga de Productos:</h4>
         </div>
-
-        <div class="col-lg-6 col-md-12 col-sm-12 division2">
-
-          <div class="row">
-                <div class="col-4">
-                    <label for="descripcion">Descripcion del Producto:</label>
-                </div>
-                <div class="col-8">
-                     <textarea class="rounded" name ="descripcion" id = "" cols = "40" rows= "5"value="descripcion"placeholder="Ingrese todas las caracteristicas del producto"> </textarea>
-                </div>
-         </div>
-
-          <div class="row">
-              <div class="col-4">
-                <label for="infoAdic">Informacion Adicional:</label></p>
-              </div>
-              <div class="col-8">
-                 <textarea class="rounded" name ="infoAdic" id = "" cols = "40" rows= "5"value="infoAdic"> </textarea>
-              </div>
-          </div>
-
-          <div class="row">
-              <div class="col-4">
-                 <label for="">Añadir Imagenes:</label> 
-              </div>
-              <div class="col-8">
-                <!-- Carga Imagen -->  
-                <!-- <input name="imagen" type="file" accept="application/pdf, .jpg" multiple  /> -->
-                <input class="form-control" type="file" id="imagen" name="imagen" placeholder="Seleccione una imagen para mostrar" accept="application/pdf, .jpg" multiple>
-              </div>
-          </div>
-            
-          </div>
+    
+        <div class="main container">
+            <form action="/products/create" method="POST" enctype= "multipart/form-data">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12 division1">
+                        <div class="row">
+                            <div class = "col-4">
+                                <label  for="category">Categoria:</label> 
+                            </div>  
+                            <div class="col-8">               
+                                <select  class= "custom-select select" name="idCategory" id="category" required>
+                                    <option value="1">Butacas</option>
+                                    <option value="2">Juguetes</option>
+                                    <option value="3">Cochecitos</option>
+                                    <option value="4">Ropa</option>   
+                                    <option value="5">Accesorios</option>   
+                                    <option value="6">Colechos y Practicunas</option>       
+                                </select>  
+                            </div>                           
+                        </div>
+                        <br>
+                        <div class="row"> 
+                            <div class="col-4" >
+                                <label for="name">Nombre:</label>
+                            </div>
+                            
+                            <div class="col-8">
+                                <input class="inputTexto" type="text"  id="name" name = "name" placeholder="Ej: Cochecito Paraguita Duck" required> 
+                            </div>                  
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="priceVenta">Precio de Venta:</label>
+                            </div>
+                            <div class="col-8">
+                                <input class="inputNumerico" type="number"  id="priceVenta" name = "priceVenta" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class= "col-4">
+                                <label  for="priceCompra">Precio de Compra:</label>
+                            </div>
+                            <div class="col-8">
+                                <input class=" inputNumerico"  type="number"  id="priceCompra" name = "priceCompra" required>   
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-4">
+                                <label  for="dateAlta">Fecha de alta:</label>
+                            </div>
+                            <div class="col-8">
+                                <input class=" inputNumerico"  type="date"  id="dateAlta" name = "dateAlta" required>
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class = "col-4">
+                                <label  for="stock">Stock:</label>
+                            </div>
+                            <div class="col-8">
+                                <input class="inputNumerico"  type="number"  id="stock" name = "stock" required>   
+                            </div>             
+                        </div>
+                        <br>
+                        <div class="row">    
+                            <div class="col-4" >          
+                                <label for="descuento">Descuento:</label>
+                            </div> 
+                            <div class="col-8">
+                                <input class="inputNumerico"  type="descuento"  id="stock" name = "descuento"placeholder="Es un %" required>  
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-4">
+                                <label  for="cuotas">Disponible en cuotas:</label>
+                            </div>
+                            <div class="col-8">
+                                <input  type="radio" name="cuotas" id="si" value="S" checked> <label for="si" >Sí</label>
+                                <input type="radio" name="cuotas" id="no" value="N"> <label for="no">No</label>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col-lg-6 col-md-12 col-sm-12 division2">
+    
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="descripcion">Descripcion del Producto:</label>
+                            </div>
+                            <div class="col-8 contentEditable">
+                                <textarea class="rounded" name ="descripcion" id = "" cols = "40" rows= "5"value="descripcion"placeholder="Ingrese todas las caracteristicas del producto"> </textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="infoAdic">Informacion Adicional:</label></p>
+                            </div>
+                            <div class="col-8 contentEditable">
+                                <textarea class="rounded" name ="infoAdic" id = "" cols = "40" rows= "5"value="infoAdic"> </textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="">Añadir Imagenes:</label> 
+                            </div>
+                            <div class="col-8">
+                                <!-- Carga Imagen -->  
+                                <!-- <input name="imagen" type="file" accept="application/pdf, .jpg" multiple  /> -->
+                                <input class="form-control" type="file" id="imagen" name="imagen" placeholder="Seleccione una imagen para mostrar" accept="application/pdf, .jpg" multiple>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+    
+                <div class="barraBotones">
+                    <p> 
+                        <input class="btn btn-primary" type="submit" value="Guardar">
+                    <!-- <input class="btn btn-success" type="submit" value="+Nuevo">-->
+                    </p>
+                <div>
+            </form>
         </div>
-     </div>   
-
-        <div class="barraBotones">
-            <p> 
-            <input class="btn btn-primary" type="submit" value="Guardar">
-            <!-- <input class="btn btn-success" type="submit" value="+Nuevo">-->
-           
-             </p>
-        <div>
-    </form>
+    </main>
+    
 
     <!-- footer -->
-	<%- include('partials/footer') %>
-	<!-- /footer -->
-</div>
-     
+    <%- include('partials/footer') %>
+    <!-- /footer --> 
 </body>
 </html>
