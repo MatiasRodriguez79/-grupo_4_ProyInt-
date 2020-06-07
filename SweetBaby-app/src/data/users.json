@@ -1,5 +1,55 @@
-[{"id":1,"firstName":"Dorie","lastName":"Liebmann","email":"dliebmann0@globo.com","password":"PfXoHJB","category":"user","image":"user_1.jpg"},
-    {"id":2,"firstName":"Mead","lastName":"Cohrs","email":"mcohrs1@youtube.com","password":"PCUcNA","category":"user","image":"user_2.jpg"},
-    {"id":3,"firstName":"Donnie","lastName":"Achrameev","email":"dachrameev2@myspace.com","password":"tKadqBZdjIP","category":"user","image":"user_3.jpg"},
-    {"id":4,"firstName":"Donavon","lastName":"Morat","email":"dmorat3@mozilla.com","password":"dZ4O7QFJpsG","category":"user","image":"user_4.jpg"},
-    {"id":5,"firstName":"Engracia","lastName":"Troker","email":"etroker4@weibo.com","password":"9bgGHURbr","category":"user","image":"user_5.jpg"}]
+[
+ {
+  "id": 1,
+  "firstName": "Dorie",
+  "lastName": "Liebmann",
+  "email": "dliebmann0@globo.com",
+  "password": "PfXoHJB",
+  "category": "user",
+  "avatar": "user_1.jpg"
+ },
+ {
+  "id": 2,
+  "firstName": "Mead",
+  "lastName": "Cohrs",
+  "email": "mcohrs1@youtube.com",
+  "password": "PCUcNA",
+  "category": "user",
+  "avatar": "user_2.jpg"
+ },
+ {
+  "id": 3,
+  "firstName": "Donnie",
+  "lastName": "Achrameev",
+  "email": "dachrameev2@myspace.com",
+  "password": "tKadqBZdjIP",
+  "category": "user",
+  "avatar": "user_3.jpg"
+ },
+ {
+  "id": 4,
+  "firstName": "Donavon",
+  "lastName": "Morat",
+  "email": "dmorat3@mozilla.com",
+  "password": "dZ4O7QFJpsG",
+  "category": "user",
+  "avatar": "user_4.jpg"
+ },
+ {
+  "id": 5,
+  "firstName": "Engracia",
+  "lastName": "Troker",
+  "email": "etroker4@weibo.com",
+  "password": "9bgGHURbr",
+  "category": "user",
+  "avatar": "user_5.jpg"
+ },
+ {
+  "id": 6,
+  "firstName": "Ysmael",
+  "lastName": "Alcala",
+  "password": "$2b$10$f4mdwA4NxnwliXT.SKKgZ.YkYI9U4mi0xDh/yj4yXRIa0YU36RSmG",
+  "category": "user",
+  "email": "rico.alcala@gmail.com"
+ }
+]

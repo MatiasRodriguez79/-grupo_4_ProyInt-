@@ -5,6 +5,7 @@
 @import "./styleDetalleProducto.css";
 @import "./styleCargaProd.css";
 @import "./products.css";
+@import "./loggin.css";
 /*====== Fonts ======*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
 
@@ -169,6 +170,12 @@ ul {
 #enviar{
   border-radius: 3px;
   color:  #191918;
+  margin-top: 5px;
+}
+
+#Enviar-button{
+  border-radius: 3px;
+  /* color:  #191918; */
   margin-top: 5px;
 }
 
