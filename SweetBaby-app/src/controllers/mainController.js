@@ -41,7 +41,9 @@ const controller = {
 		});
 	},
 	user: (req, res, next) => {
-		res.render('sign-in');
+		res.render('loggin', {
+			error: null
+		});
 	},
 };
 

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/MatiasRodriguez79/grupo_4_ProyInt#readme",
   "dependencies": {
+    "bcrypt": "^4.0.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "^2.6.2",

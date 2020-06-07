@@ -1,0 +1,40 @@
+.registro{
+    /* margin: 20px 0px 20px 0px; */
+    border-right: 1px solid black ;
+}
+
+.loggin {
+    /* margin: 20px 0px 20px 0px; */
+}
+
+.cart-section {
+    align-items: center;
+    font-size: .875rem;
+    padding: 1rem;
+}
+
+.cart-container {
+    /* align-content: stretch; */
+    display: flex;
+    margin: 10px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction:column;
+    padding: 0.5px;
+    /* width: 100%;     */
+}
+
+.cart-item-noBr {
+    padding: 0.5px;
+    width: 100%;
+}
+
+.cart-item input{
+    max-width: 220px;
+    /* width: 100%; */
+}
