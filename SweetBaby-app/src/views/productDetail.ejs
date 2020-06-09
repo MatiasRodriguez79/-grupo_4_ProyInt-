@@ -45,7 +45,7 @@
                 <div class="descripcionItem card cart-resumen col-4 car">               
                     <h1><%= product.name%></h1>  
                         
-                    <ul class="actions-list">
+                    <ul class="actions-list ">
                         <li><p class="precio">$<%= thousandGenerator(product.priceVenta) %> 
                             <% if(product.descuento > 0) { %>
                                 <span class="offspan"><%= product.descuento%>% OFF</span>
@@ -60,13 +60,13 @@
                             <% } %>
                             
                         </li>
-                        <li><i class="fas fa-credit-card"></i>
+                        <li>
                             <% if(product.cuotas == 'S') { %>
-                                <p class= "beneficios">Pagá en 12 cuotas sin interes</p>
+                                <p class= "beneficios"><i class="fas fa-credit-card"></i> Pagá en 12 cuotas sin interes</p>
                             <% } %>
                         </li>
                         <li><p class="beneficios">Envio Gratis a todo el País</p></li>
-                        <li><i class="fas fa-store"></i><p class="beneficios">Retiro gratis en locales del vendedor</p></li>
+                        <li></i><p class="beneficios"><i class="fas fa-store"></i> Retiro gratis en locales del vendedor</p></li>
                         <li><p class="beneficios">Devolución Gratis</p></li>
                     </ul>
                         
@@ -84,7 +84,7 @@
                         </select>
                     </div>                 
                     <div class="barraBotonesDetalle">
-                        <button type="button" class="btn btn-success btnComprar" onclick="alert('Aqui vamos al carrito')">Añadir al carrito </button>
+                        <button type="button" class="btn btn-success btnComprar" onclick="alert('Aqui vamos al carrito')">Lo Quiero </button>
                     </div>
                 </div>
             </div>

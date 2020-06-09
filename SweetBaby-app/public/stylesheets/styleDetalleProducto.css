@@ -17,6 +17,7 @@
     align-content: space-around;
     flex-direction: column;
     align-items: flex-start;
+    padding: 3%;
 }
 .principal{
     margin-top: 10px;
@@ -69,3 +70,4 @@
     font-size: 15px;
     margin-left: 39px;
 }
+
