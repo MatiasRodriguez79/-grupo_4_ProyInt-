@@ -51,5 +51,14 @@
   "password": "$2b$10$f4mdwA4NxnwliXT.SKKgZ.YkYI9U4mi0xDh/yj4yXRIa0YU36RSmG",
   "category": "user",
   "email": "rico.alcala@gmail.com"
+ },
+ 
+ {
+  "id": 8,
+  "firstName": "Matias",
+  "lastName": "Rodriguez",
+  "password": "$2b$10$V.Cf6H42gKn9vPbrsKQlF.DKlXdtYMrw7bJJeA9/.O8I5T6LNUpQK",
+  "category": "user",
+  "email": "matias.rodriguez.73@gmail.com"
  }
 ]

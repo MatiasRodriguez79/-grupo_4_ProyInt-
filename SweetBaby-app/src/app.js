@@ -5,6 +5,8 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
+//const session = require('./node_modules/express-session');
+const session = require('express-session');
 
 // ************ express() ************
 var app = express();
@@ -15,6 +17,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cookieParser());
+app.use(session({
+  secret: 'user secret',
+  resave: false,
+  saveUninitialized: true,
+}));
+
+
 app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 
 
