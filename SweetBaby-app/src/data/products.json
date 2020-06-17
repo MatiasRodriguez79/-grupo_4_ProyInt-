@@ -1,18 +1,17 @@
 [
  {
   "id": 3,
-  "idCategory": 3,
-  "name": "Cochecito Cuna Bebe Joie Travel ",
+  "idCategory": 1,
+  "name": "Cochecito Cuna Joie Travel ",
   "priceVenta": 13400,
   "priceCompra": 8000,
   "dateAlta": "2020-05-29",
   "stock": 10,
   "descuento": 40,
   "cuotas": "S",
-  "descripcion": " Plegado con bloqueo de plegado automático\r\nAdecuada desde el nacimiento gracias a su reclinado total y en 4 posiciones.\r\n Una vez plegada se mantiene de pie.\r\n Reposapiernas ajustable en 2 posiciones.\r\n Gran capota ajustable con visera y ventana.\r\nGran cesta portaobjetos.\r\n",
+  "descripcion": " Plegado con bloqueo de plegado automático\r\nAdecuada desde el nacimiento gracias a su reclinado total y en 4 posiciones.\r\n Una vez plegada se mantiene de pie.\r\n Reposapiernas ajustable en 2 posiciones.\r\n Gran capota ajustable con visera y ventana.\r\nGran cesta portaobjetos.\r\n ",
   "infoAdic": " Uso del producto: desde el nacimiento hasta los 17,5 kg",
-  "category": "Cochecitos",
-  "image": "imagen-1590751790430.jpg"
+  "category": "Butacas"
  },
  {
   "id": 5,
@@ -46,18 +45,17 @@
  },
  {
   "id": 7,
-  "idCategory": 2,
-  "name": "Silla Mecedora Bebe Mega Baby ",
+  "idCategory": 1,
+  "name": "Silla Mecedora  Mega Baby ",
   "priceVenta": 5900,
   "priceCompra": 3000,
   "dateAlta": "2020-05-29",
   "stock": 10,
   "descuento": 15,
   "cuotas": "S",
-  "descripcion": " Se puede usar desde recién nacido hasta niños pequeños de hasta 20 kilos.\r\nCambia de asiento cuna a asiento fijo en un instante.\r\nTiene dos posiciones de reclinado del asiento.\r\nVibraciones que ayudan a relajar al BEBE.\r\nBarra de juguetes para Bebe que se puede retirar fácil.\r\nEs fácil de guardar y llevar en todo momento.\r\n",
+  "descripcion": " Se puede usar desde recién nacido hasta niños pequeños de hasta 20 kilos.\r\nCambia de asiento cuna a asiento fijo en un instante.\r\nTiene dos posiciones de reclinado del asiento.\r\nVibraciones que ayudan a relajar al BEBE.\r\nBarra de juguetes para Bebe que se puede retirar fácil.\r\nEs fácil de guardar y llevar en todo momento.\r\n ",
   "infoAdic": " De fácil limpieza , se puede lavar a maquina lavadora.\r\nCuenta con cinturón de seguridad de 3 puntos de sujeción.",
-  "category": "Juguetes",
-  "image": "imagen-1590752856859.jpg"
+  "category": "Butacas"
  },
  {
   "id": 8,
@@ -148,18 +146,17 @@
  },
  {
   "id": 14,
-  "idCategory": 5,
-  "name": "Catre De Baño",
+  "idCategory": 1,
+  "name": "Catre con Bañera",
   "priceVenta": 6000,
   "priceCompra": 4000,
   "dateAlta": "2020-05-29",
   "stock": 5,
   "descuento": 15,
   "cuotas": "S",
-  "descripcion": " Catre De Baño Para Bebé Branda Due 404 Infanti Creciendo.\r\nHasta 26 Litros.\r\nMaterial Aluminio,",
+  "descripcion": " Catre De Baño Para Bebé Branda Due 404 Infanti Creciendo.\r\nHasta 26 Litros.\r\nMaterial Aluminio, ",
   "infoAdic": " ",
-  "category": "Accesorios",
-  "image": "imagen-1590754918482.jpg"
+  "category": "Butacas"
  },
  {
   "id": 15,
@@ -178,17 +175,16 @@
  },
  {
   "id": 16,
-  "idCategory": 6,
-  "name": "Cuna Colecho y Moises MBaby",
+  "idCategory": 1,
+  "name": "Cuna Colecho y Moises ",
   "priceVenta": 11000,
   "priceCompra": 6000,
   "dateAlta": "2020-05-29",
   "stock": 12,
   "descuento": 40,
   "cuotas": "S",
-  "descripcion": "CINCO POSICIONES DE ALTURA\r\nCORRALITO\r\nLATERAL REBATIBLE\r\nDOS RUEDAS\r\nCON COLCHONETA LADOS TRANSPARENTES\r\nRES FORMAS DE USO COMO COLECHO O CORRALITO Y MECEDOR\r\n\r\n\r\n",
+  "descripcion": "CINCO POSICIONES DE ALTURA\r\nCORRALITO\r\nLATERAL REBATIBLE\r\nDOS RUEDAS\r\nCON COLCHONETA LADOS TRANSPARENTES\r\nRES FORMAS DE USO COMO COLECHO O CORRALITO Y MECEDOR\r\n\r\n\r\n ",
   "infoAdic": " * MEDIDAS: Ancho 55cm, Largo 90 cm, 55 cm piso al colchon\r\n* MAS DE 12 MESES",
-  "category": "Colechos y Practicunas",
-  "image": "imagen-1590758902474.jpg"
+  "category": "Butacas"
  }
 ]

@@ -14,7 +14,12 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
 	root: (req, res, next) => {
-		res.render('index');
+		
+		const usuario= req.nomCompleto
+		
+		console.log ('hola main'+ usuario)
+		res.render('index', usuario);
+
 	},
 	carrito: (req, res, next) => {
 		// console.log(carrito.find(x=> x.idUser == 1).productsArray.map(x=> {

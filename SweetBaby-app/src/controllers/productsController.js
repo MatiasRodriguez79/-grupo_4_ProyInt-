@@ -12,20 +12,28 @@ const imgs = JSON.parse(fs.readFileSync(imgsFilePath, 'utf-8'));
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+
 const controller = {
 
 	// List - Show all products Table
 	list: (req, res) => {
+		const usuario= req.nomCompleto
+		//console.log( "hola soy el usuario " + usuario)
+		console.log( "hola soy el usuario " + usuario)
 		res.render('productsList',{
+			usuario,
 			products,
-				thousandGenerator: toThousand
+			thousandGenerator: toThousand,	
+			
 		});
 	},
 
 	// Root - Show all products
 	root: (req, res, next) => {
 		// console.log(req.url);
+		const usuario= req.nomCompleto
 		res.render('products',{
+			usuario,
 			currentUrl: req.url,
 			products: products.filter(x => req.query.cat ? x.idCategory == req.query.cat : x).map(x => {
 				return {

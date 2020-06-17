@@ -44,9 +44,19 @@ const controller = {
             });   
        
         }
-        console.log (user.id);
+        //console.log (user.id);
         usuarioLogueado = user.id
+        usuarioNombre = user.firstName + ' ' + user.lastName
         req.session.user = usuarioLogueado;
+        req.session.nomYape =usuarioNombre
+
+
+        if (req.body.recordame != undefined){
+
+            console.log ('guardo cookie de ' + usuarioLogueado)
+            res.cookie('recordame', usuarioLogueado, { maxAge : 60000})
+         
+        }
 		res.redirect('/');
     },
     
