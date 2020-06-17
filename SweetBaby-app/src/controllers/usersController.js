@@ -41,11 +41,15 @@ const controller = {
         if(!bcrypt.compareSync(password, user.password)) {
             return res.render('loggin', {
                 error: 'Password incorrecto!'
-            });
+            });   
+       
         }
-
+        console.log (user.id);
+        usuarioLogueado = user.id
+        req.session.user = usuarioLogueado;
 		res.redirect('/');
-	},
+    },
+    
 };
 
 module.exports = controller;
