@@ -7,6 +7,7 @@ const path = require('path');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
 //const session = require('./node_modules/express-session');
 const session = require('express-session');
+//const recordame = require ('./middwares/middRecordame')
 
 // ************ express() ************
 var app = express();
@@ -22,7 +23,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
 }));
-
+const middUserName = require ('./middwares/middUserName')
+//app.use (middUserName);
 
 app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 
@@ -38,8 +40,8 @@ const mainRouter = require('./routes/main'); // Rutas main
 const productsRouter = require('./routes/products'); // Rutas /products
 const usersRouter = require('./routes/users'); // Rutas /products
 
-//app.use('/users', usersRouter);
-app.use('/', mainRouter);
+
+app.use('/',  mainRouter);
 app.use('/products', productsRouter);
 app.use('/user', usersRouter);
 
