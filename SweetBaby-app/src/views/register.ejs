@@ -1,0 +1,90 @@
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Registro'}) %>
+<body>
+   <!-- Header -->
+	<%- include('partials/headerNavbar') %>
+    <!-- /Header -->
+    <main>
+        <div class="container">
+            <% if(error) { %>
+                <div class="card text-white bg-danger">
+                    <div class="card-body">
+                        <h2 class="card-title"><%=error%></h2>
+                    </div>
+                </div>
+            <% } %>
+            <div class="card">
+                <div class="card-body row">
+                    <div class="col-12">
+                        <form action="/user/register" method="POST" enctype= "multipart/form-data">
+                            <div class="card-body cart-section">
+                                <div class="row cart-container">
+                                    <div class="col-lg-6 col-sm-12 cart-item">
+                                        <h5 class="card-title" for="">Nombre</h5>
+                                        <input type="text" name="firstName" id="firstName" placeholder="Nombre" required>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12 cart-item">
+                                        <h5 class="card-title" for="">Apellido</h5>
+                                        <input type="text" name="lastName" id="lastName" placeholder="Apellido">  
+                                    </div>
+                                </div>
+    
+                                <div class="row cart-container">
+                                    <div class="col-lg-6 col-sm-12 cart-item">
+                                        <h5 class="card-title" for="">Email</h5>
+                                        <input type="email" name="emailRegister1" id="emailRegister1" placeholder="ejemplo@outlook.com" required>  
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12 cart-item">
+                                        <h5 class="card-title" for="">  Repetir Email</h5>
+                                        <input type="email" name="emailRegister2" id="emailRegister2" placeholder="Repetir email" required>
+                                    </div>
+                                </div>
+    
+                                <div class="row cart-container">
+                                    <div class="col-lg-12 col-sm-12 cart-item-noBr">
+                                        <label class="card-title" for="Boletin-noticias">Boletin de Noticias</label>
+                                        <input type="checkbox" name="boletin-noticias" value="acorde" id="Boletin-noticias"> 
+                                    </div>
+                                </div>
+                                
+                                <div class="row cart-container">
+                                    <div class="col-lg-6 col-sm-12 cart-item">
+                                        <h5 class="card-title" for="">Contraseña</h5>
+                                        <input type="password" name="passwordRegister1" id="passwordRegister1" placeholder="Contraseña" required>   
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12 cart-item">
+                                        <h5 class="card-title" for="">Repetir Contraseña</h5>
+                                        <input type="password" name="passwordRegister2" id="passwordRegister2" placeholder="Repetir Contraseña" required> 
+                                    </div>
+                                </div>
+    
+                                <div class="row cart-container">
+                                    <div class="col-lg-12 col-sm-12 cart-item-noBr">
+                                        <label class="card-title" for="aceptar-condiciones">Aceptar Condiciones</label>
+                                        <input type="checkbox" name="aceptar-condiciones" value="acepta" id="aceptar-condiciones" required>  
+                                    </div>
+                                </div>
+
+                                <div class="row cart-container">
+                                    <div class="col-lg-12 col-sm-12 cart-item-noBr">
+                                        <label class="card-title" for="">Cargá un avatar</label>
+                                        <input class="form-control" type="file" id="avatar" name="avatar" placeholder="Seleccione una imagen para mostrar" accept="application/pdf, .jpg" multiple>
+                                    </div>
+                                </div>
+    
+                                <div class="row cart-container">
+                                    <button type="submit" class="btn btn-primary" id="Enviar-button" required>Regístrate</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    <!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>
+</html>

@@ -22,6 +22,20 @@
     justify-content: center;
 }
 
+.cart-container button{
+    /* align-content: stretch; */
+    margin-top: 50px;
+}
+
+.cart-container-justify {
+    /* align-content: stretch; */
+    /* display: flex; */
+    margin: 10px;
+    position: relative;
+    align-items: flex-start;
+    /* justify-content: center; */
+}
+
 .cart-item {
     display: flex;
     flex-direction:column;
@@ -35,6 +49,7 @@
 }
 
 .cart-item input{
-    max-width: 220px;
+    max-width: 90%;
+    /* max-width: 220px; */
     /* width: 100%; */
 }

@@ -1,0 +1,92 @@
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Registro'}) %>
+<body>
+   <!-- Header -->
+	<%- include('partials/headerNavbar') %>
+    <!-- /Header -->
+    <main>
+        <div class="container">
+            <% if(error) { %>
+                <div class="card text-white bg-danger">
+                    <div class="card-body">
+                        <h2 class="card-title"><%=error%></h2>
+                    </div>
+                </div>
+            <% } %>
+            <div class="card">
+                <div class="card-body row">                    
+                    <div class="col-lg-3 col-sm-12">
+                        <img class="profileImg" src="/images/avatars/<%= user.avatar%>" alt="">
+
+                        <!-- <div class="">
+                            <label class="card-title" for="">Cambiar foto de perfil</label>
+                            <input class="form-control" type="file" id="avatar" name="avatar" accept="application/jpg" multiple>
+                        </div> -->
+                    </div>
+                    <div class="col-lg-9 col-sm-12">
+                        <form action="/user/register/update?_method=PUT" method="POST">
+                            <div class="card-body cart-section">
+                                <div class="row  cart-container-justify">
+                                    <div class="col-lg-6 col-sm-12 cart-item">
+                                        <h5 class="card-title" for="">Nombre</h5>
+                                        <input type="text" name="firstName" id="firstName" value="<%= user.firstName%>">
+                                    </div>   
+                                    <div class="col-lg-6 col-sm-12 cart-item">
+                                        <h5 class="card-title" for="">Apellido</h5>
+                                        <input type="text" name="lastName" id="lastName" value="<%= user.lastName%>">  
+                                    </div>                                 
+                                </div>
+
+                                <div class="row cart-container-justify">
+                                    
+                                </div>
+    
+                                <div class="row cart-container-justify">
+                                    <div class="col-lg-6 col-sm-12 cart-item">
+                                        <h5 class="card-title" for="">Email</h5>
+                                        <input type="email" name="emailRegister1" id="emailRegister1" value="<%= user.email%>"  disabled>  
+                                    </div>
+                                </div>
+    
+                                <div class="row cart-container">
+                                    <button type="submit" class="btn btn-primary" id="" required>Actualizar datos</button>
+                                </div>
+                            </div>                        
+                        </form>
+                    </div>                                        
+                    <div class="card-body row">
+                        <div class="col-lg-3">
+                        </div>
+                        <div class="col-lg-9 col-sm-12">                            
+                            <form action="/user/register/update-pass?_method=PUT" method="POST">
+                                <div class="card-body cart-section">
+                                    <div class="row cart-container-justify">
+                                        <div class="col-lg-6 col-sm-12 cart-item">
+                                            <h5 class="card-title" for="">Contraseña</h5>
+                                            <input type="password" name="passwordRegister1" id="passwordRegister1" placeholder="Contraseña" required>   
+                                        </div>
+                                        <div class="col-lg-6 col-sm-12 cart-item">
+                                            <h5 class="card-title" for="">Repetir Contraseña</h5>
+                                            <input type="password" name="passwordRegister2" id="passwordRegister2" placeholder="Repetir Contraseña" required> 
+                                        </div>
+                                    </div>
+                                    
+        
+                                    <div class="row cart-container">
+                                        <button type="submit" class="btn btn-primary" id="" required>Cambiar contraseña</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    <!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>
+</html>
