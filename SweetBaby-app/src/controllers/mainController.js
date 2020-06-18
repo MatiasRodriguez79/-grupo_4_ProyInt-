@@ -17,7 +17,7 @@ const controller = {
 		
 		const usuario= req.nomCompleto
 		
-		console.log ('hola main'+ usuario)
+		console.log ('hola main '+ usuario)
 		res.render('index', usuario);
 
 	},
@@ -30,8 +30,8 @@ const controller = {
 		// }));
 
 		let productsComprados = [];
-		if(carrito.find(x=> x.idUser == 1)) {
-			productsComprados = carrito.find(x=> x.idUser == 1).productsArray.map(x=> {
+		if(carrito.find(x=> x.idUser == req.session.user)) {
+			productsComprados = carrito.find(x=> x.idUser == req.session.user).productsArray.map(x=> {
 				return {
 					...products.find(y => y.id == x.id),
 					imgs : imgs.filter(y => y.idProducto == x.id)
