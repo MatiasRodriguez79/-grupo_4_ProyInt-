@@ -5,7 +5,7 @@ const path = require('path');
 
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController');
-
+const middUserName = require ('../middwares/middUserName')
 
 
 // ************ Para la carga de imagenes ************
@@ -27,7 +27,7 @@ let upload = multer({
 
 /* GET home page. */
 router.post('/register', upload.any(), usersController.register);
-router.get('/profile', usersController.profile)
+router.get('/profile', middUserName, usersController.profile)
 router.put('/register/update', upload.any(), usersController.update);
 router.put('/register/update-pass', usersController.updatePass);
 router.get('/register', usersController.registerGet);

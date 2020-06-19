@@ -64,13 +64,14 @@ const controller = {
     },
 
     profile: (req, res, next) => {
-
+       
         const user = users.find((user) => {
             return user.id == req.session.user;
         });
         res.render('profile', {
             user: user,
-            error: null
+            error: null,
+            usuario:req.nomCompleto
         });
     },
     
@@ -101,7 +102,7 @@ const controller = {
 
         if (typeof req.body.recordame !== "undefined"){
 
-            console.log ('guardo cookie de ' + usuarioLogueado)
+           // console.log ('guardo cookie de ' + usuarioLogueado)
             res.cookie('recordame', usuarioLogueado, { maxAge : 60000})
          
         }
@@ -115,7 +116,7 @@ const controller = {
 
         newUser.firstName = req.body.firstName;
         newUser.lastName = req.body.lastName;
-        console.log(newUser);
+       // console.log(newUser);
         let newUsers = users.map(user => {
 			if (user.id == newUser.id) {
 				return user = {...newUser};

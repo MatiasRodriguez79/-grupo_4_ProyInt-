@@ -5,6 +5,7 @@ const multer = require('multer');
 const path = require('path');
 const usuarioLogueado = require ('../middwares/middUserValidation')
 const recordame = require ('../middwares/middRecordame')
+const middUserName = require ('../middwares/middUserName')
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
 
@@ -31,14 +32,15 @@ router.get('/create/', recordame, usuarioLogueado, productsController.create); /
 router.post('/create/', upload.any(),productsController.store); /* POST - Store in DB */
 
 
-router.get('/', productsController.root); /* GET - All products */
+router.get('/', middUserName, productsController.root); /* GET - All products */
 router.get('/detail/:productId/', productsController.detail); /* GET - Product detail */
 
-router.get('/list',recordame, usuarioLogueado, productsController.list); /* GET - All products grill*/
+//router.get('/list',middUserName, recordame, usuarioLogueado, productsController.list); /* GET - All products grill*/
+router.get('/list',middUserName, recordame,usuarioLogueado, productsController.list); /* GET - All products grill*/
 
 
 /*** EDIT ONE PRODUCT ***/ 
-router.get('/edit/:productId', recordame, usuarioLogueado, productsController.edit); /* GET - Form to create */
+router.get('/edit/:productId', middUserName, recordame, usuarioLogueado, productsController.edit); /* GET - Form to create */
 
 router.put('/edit/:productId',recordame, usuarioLogueado, productsController.update); /* PUT - Update in DB */
 

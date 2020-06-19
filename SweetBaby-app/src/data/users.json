@@ -25,5 +25,14 @@
   "category": "user",
   "email": "asd@gmail.com",
   "avatar": "default-image.png"
+ },
+ {
+  "id": 4,
+  "firstName": "Matiass",
+  "lastName": "Rodriguez",
+  "password": "$2b$10$tyf66ZKwdlZ0m0fLMgvr6upFHx36Ssd7onAMEy6pgKEgct2Y97URa",
+  "category": "user",
+  "email": "matias.rodriguez.7333@gmail.com",
+  "avatar": "avatar-1592591621412.jpg"
  }
 ]

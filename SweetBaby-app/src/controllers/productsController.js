@@ -12,14 +12,15 @@ const imgs = JSON.parse(fs.readFileSync(imgsFilePath, 'utf-8'));
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+let usuario = '';
 
 const controller = {
 
 	// List - Show all products Table
 	list: (req, res) => {
-		const usuario= req.nomCompleto
+		usuario= req.nomCompleto
 		//console.log( "hola soy el usuario " + usuario)
-		console.log( "hola soy el usuario " + usuario)
+		//console.log ('estoy en list'+ usuario)
 		res.render('productsList',{
 			usuario,
 			products,
@@ -31,7 +32,7 @@ const controller = {
 	// Root - Show all products
 	root: (req, res, next) => {
 		// console.log(req.url);
-		const usuario= req.nomCompleto
+		usuario= req.nomCompleto
 		res.render('products',{
 			usuario,
 			currentUrl: req.url,
@@ -52,13 +53,15 @@ const controller = {
 		// 	...products.find((x) => x.id == req.params.productId),
 		// 	imgs : imgs.filter(x => x.idProducto == req.params.productId).map((x) => { return x.img} )
 		// });
+		 usuario= req.nomCompleto
 		res.render('productDetail',{
 			product: {
 				...products.find((x) => x.id == req.params.productId),
 				imgs : imgs.filter(x => x.idProducto == req.params.productId)
 				// .map((x) => { return x.img} )
 			},
-			thousandGenerator: toThousand
+			thousandGenerator: toThousand,
+			usuario
 		});
 	},
 	// Create - Form to create
