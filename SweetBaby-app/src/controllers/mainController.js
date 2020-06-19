@@ -12,13 +12,14 @@ const imgs = JSON.parse(fs.readFileSync(imgsFilePath, 'utf-8'));
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+let usuario = '';
 const controller = {
 	root: (req, res, next) => {
 		
-		const usuario= req.nomCompleto
-		
-		console.log ('hola main '+ usuario)
-		res.render('index', usuario);
+		 //usuario= req.nomCompleto		
+		//console.log ('hola main '+ usuario)
+		res.render('index', 
+		{usuario:req.nomCompleto} );
 
 	},
 	carrito: (req, res, next) => {
@@ -38,18 +39,39 @@ const controller = {
 				}
 			});
 		}
-		
+		usuario= req.nomCompleto
 		res.render('carrito', {			
 			products: productsComprados,
 			totalAmount: productsComprados.reduce((a, b) => a + (b['priceVenta'] || 0), 0),
-			thousandGenerator: toThousand
+			thousandGenerator: toThousand,
+			usuario
 		});
 	},
-	user: (req, res, next) => {
-		res.render('loggin', {
+	user: (req, res,next) => {
+	
+		console.log ('estoy en user')
+		res.render('loggin',
+		{
 			error: null
-		});
+		},
+		//{usuario:req.nomCompleto}
+		);
 	},
+	logOff: (req,res,next)=>{
+		//console.log ('estoy en log off de ' + req.session.user) 
+		//req.session.user = undefined;
+		//req.cookies.recordame = undefined;
+		req.session.user = null;
+		res.cookie('recordame', null, { maxAge: -1 });
+		req.session.nomYape= null
+		//console.log ("limpio recordame "+req.session.user+req.cookies.recordame)
+		res.render('loggin',{
+			error: null
+		},
+		
+		);
+		
+	}
 };
 
 module.exports = controller;

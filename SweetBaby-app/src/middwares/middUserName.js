@@ -8,7 +8,7 @@
         req.nomCompleto = req.session.nomYape 
 
     } else {
-        req.nomCompleto = 'No hay user'
+        
     }
     console.log ('usuario logueadoo  ' + req.session.nomYape)
    next();
