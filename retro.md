@@ -14,3 +14,18 @@ Hacer menos:
 	- Perdida de tiempo en cosas que no agreguen valor al proyecto.
 Dejar de hacer:
 	- Resolver las tareas el ultimo dia del Sprint.
+	
+Retro Sprint IV - Fecha: 06/05/2020.
+
+Comenzar a hacer:
+	- Refinar detalles de la pagina.
+Hacer más:
+	- Constancia en la comunicacion del equipo.
+	- Mas dedicacion al proyecto.
+Continuar haciendo:
+	- Planificacion del Sprint en Trello.
+	- Cumplir con la fecha de entrega del Sprint.
+Hacer menos:
+	- Perdida de tiempo en cosas que no agreguen valor al proyecto.
+Dejar de hacer:
+	- Resolver las tareas el ultimo dia del Sprint.
