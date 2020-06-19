@@ -19,6 +19,7 @@ Retro Sprint IV - Fecha: 06/05/2020.
 
 Comenzar a hacer:
 	- Refinar detalles de la pagina.
+	- Una demo unos dias antes de la entrega para ver el producto a entregar en equipo.
 Hacer más:
 	- Constancia en la comunicacion del equipo.
 	- Mas dedicacion al proyecto.
