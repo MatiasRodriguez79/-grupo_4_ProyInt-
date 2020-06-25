@@ -33,7 +33,7 @@ router.post('/create/', upload.any(),productsController.store); /* POST - Store 
 
 
 router.get('/', middUserName, productsController.root); /* GET - All products */
-router.get('/detail/:productId/', productsController.detail); /* GET - Product detail */
+router.get('/detail/:productId/',middUserName, productsController.detail); /* GET - Product detail */
 
 //router.get('/list',middUserName, recordame, usuarioLogueado, productsController.list); /* GET - All products grill*/
 router.get('/list',middUserName, recordame,usuarioLogueado, productsController.list); /* GET - All products grill*/
