@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const db = require('../database/models');
 
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -16,8 +17,17 @@ let usuario = '';
 
 const controller = {
 
+
 	// List - Show all products Table
 	list: (req, res) => {
+
+		db.sequelize.query ( 'SELECT first_name FROM actors')
+		.then (resultados => {
+			let productos = resultados [0];
+			console.log (productos)
+		})
+
+
 		usuario= req.nomCompleto
 		//console.log( "hola soy el usuario " + usuario)
 		//console.log ('estoy en list'+ usuario)

@@ -39,12 +39,12 @@ const controller = {
 				}
 			});
 		}
-		usuario= req.nomCompleto
+		console.log ('estoye en carrito' + req.nomCompleto)
 		res.render('carrito', {			
 			products: productsComprados,
 			totalAmount: productsComprados.reduce((a, b) => a + (b['priceVenta'] || 0), 0),
 			thousandGenerator: toThousand,
-			usuario
+			usuario:req.nomCompleto
 		});
 	},
 	user: (req, res,next) => {
