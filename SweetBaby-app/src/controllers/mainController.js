@@ -39,7 +39,7 @@ const controller = {
 				}
 			});
 		}
-		console.log ('estoye en carrito' + req.nomCompleto)
+		// console.log ('estoye en carrito' + req.nomCompleto)
 		res.render('carrito', {			
 			products: productsComprados,
 			totalAmount: productsComprados.reduce((a, b) => a + (b['priceVenta'] || 0), 0),
@@ -49,7 +49,7 @@ const controller = {
 	},
 	user: (req, res,next) => {
 	
-		console.log ('estoy en user')
+		// console.log ('estoy en user')
 		res.render('loggin',
 		{
 			error: null

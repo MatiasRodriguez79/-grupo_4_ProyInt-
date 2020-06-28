@@ -1,10 +1,10 @@
 
 
 function userValidation (req, res, next){
-    console.log ('sesion de usuario ' + req.session.user)
+    // console.log ('sesion de usuario ' + req.session.user)
 
   if (req.session.user== undefined ){
-       console.log ("No estas Logueado")
+    //    console.log ("No estas Logueado")
        res.redirect('/user');
     
     }else{
