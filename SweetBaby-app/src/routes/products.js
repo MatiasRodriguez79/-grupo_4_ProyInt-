@@ -28,8 +28,10 @@ let upload = multer({
 
 
 /*** CREATE ONE PRODUCT ***/ 
-router.get('/create/', recordame, usuarioLogueado, productsController.create); /* GET - Form to create */
-router.post('/create/', upload.any(),productsController.store); /* POST - Store in DB */
+//router.get('/create/', recordame, usuarioLogueado, productsController.create); /* GET - Form to create */
+router.get('/create/', recordame, usuarioLogueado, productsController.createDb); /* GET - Form to create */
+//router.post('/create/', upload.any(),productsController.store); /* POST - Store in DB */
+router.post('/create/', upload.any(),productsController.storeDb); /* POST - Store in DB */
 
 
 router.get('/', middUserName, productsController.root); /* GET - All products */

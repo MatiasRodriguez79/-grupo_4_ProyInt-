@@ -17,16 +17,8 @@ let usuario = '';
 
 const controller = {
 
-
 	// List - Show all products Table
 	list: (req, res) => {
-
-		db.sequelize.query ( 'SELECT first_name FROM actors')
-		.then (resultados => {
-			let productos = resultados [0];
-			console.log (productos)
-		})
-
 
 		usuario= req.nomCompleto
 		//console.log( "hola soy el usuario " + usuario)
@@ -75,19 +67,81 @@ const controller = {
 		});
 	},
 	// Create - Form to create
-	create: (req, res) => {
+	/*create: (req, res) => {
 		res.render('productAdd.ejs', {
 			products,
 			thousandGenerator: toThousand
 		});
+	},*/
+	createDb: async(req, res) => {
+		
+		const categories = await db.Categoria.findAll();
+		const products= await db.Producto.findAll();
+		//console.log ("categorias: " + categories[0].id)
+		//console.log ("productos: " + products)
+
+     	res.render('productAdd.ejs', {
+			 	products:products,
+				categories: categories,
+				thousandGenerator: toThousand});     
 	},
+
+	/*
 	store: (req, res, next) => {
-		//onsole.log ('estoy en store');
+		//console.log ('estoy en store');
 		req.body.priceVenta = Number(req.body.priceVenta);
 		req.body.priceCompra = Number(req.body.priceCompra);
 		req.body.descuento = Number(req.body.descuento);
 		req.body.idCategory = Number(req.body.idCategory);
 		req.body.stock = Number(req.body.stock);
+		let newProduct = {
+			id: products[products.length - 1].id + 1,
+			...req.body,
+			category: categories.find(x=> x.id == req.body.idCategory).name,
+			//image: 'default-image.png'
+			image: req.files[0].filename
+		};
+		let finalProducts = [...products, newProduct];
+
+		let newImages;
+		let finalImgs = [...imgs];
+		let orderImg = 1;
+		req.files.forEach(element => {
+			newImages = {
+				idProducto: newProduct.id,
+				img: element.filename,
+				order: orderImg++
+			}
+			finalImgs = [...finalImgs, newImages];
+		});
+		// let newImages = {
+		// 	idProducto: newProduct.id,
+		// 	img: req.files[0].filename,
+		// 	order: 1
+		// }
+		// let finalImgs = [...imgs, newImages];
+
+		
+		fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
+		fs.writeFileSync(imgsFilePath, JSON.stringify(finalImgs, null, ' '));
+		
+		res.redirect('/products/list');
+	},*/
+
+	storeDb: (req, res, next) => {
+		//console.log ('estoy en store');
+		db.Producto.create ({
+		id_category : Number(req.body.idCategory),
+		name: (req.body.name),
+		price_venta: Number(req.body.priceVenta),
+		price_compra: Number(req.body.priceCompra),
+		created_date: (req.body.dateAlta),
+		discount: Number(req.body.descuento),
+		cuotas:(req.body.cuotas),
+		stock: Number(req.body.stock),
+		description: (req.body.descripcion),
+		adicional_info: (req.body.infoAdic)
+		})
 		let newProduct = {
 			id: products[products.length - 1].id + 1,
 			...req.body,
@@ -134,6 +188,8 @@ const controller = {
 
 
 	},
+
+	
 
 		// Update - Method to update
 	update: (req, res) => {
