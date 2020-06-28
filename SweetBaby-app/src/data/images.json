@@ -113,5 +113,15 @@
   "idProducto": 16,
   "img": "imagen-1590758902480.jpg",
   "order": 2
+ },
+ {
+  "idProducto": 17,
+  "img": "imagen-1593132379370.jpg",
+  "order": 1
+ },
+ {
+  "idProducto": 18,
+  "img": "imagen-1593132515047.jpg",
+  "order": 1
  }
 ]
