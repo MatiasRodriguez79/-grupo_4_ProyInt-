@@ -7,7 +7,7 @@
     
     <main class="bodyCargaProductos">
         <div class="titulo container-fluid">
-            <h4>Modificacion de Productos:</h4>
+            <h4>Modificacion de Producto:</h4>
         </div>
         <div class="main container">
         <!--<form action="/products/create" method="POST" enctype= "multipart/form-data">-->
@@ -20,12 +20,9 @@
                             </div>  
                             <div class="col-8">               
                                 <select  class= "custom-select select" name="idCategory" id= "category"  required>
-                                    <option value="1">Butacas</option>
-                                    <option value="2">Juguetes</option>
-                                    <option value="3">Cochecitos</option>
-                                    <option value="4">Ropa</option>   
-                                    <option value="5">Accesorios</option>   
-                                    <option value="6">Colechos y Practicunas</option>       
+                                    <%for( let i = 0; i < categories.length; i++) { %>
+                                        <option value="<%=categories[i].id %>"><%=categories[i].name%></option>                                   
+                                    <%}%>         
                                 </select>  
                             </div>                           
                         </div>
@@ -45,7 +42,7 @@
                                 <label for="priceVenta">Precio de Venta:</label>
                             </div>
                             <div class="col-8">
-                                <input class="inputNumerico" type="number"  id="priceVenta" name = "priceVenta" value="<%= productToEdit.priceVenta %>" required>
+                                <input class="inputNumerico" type="number"  id="priceVenta" name = "priceVenta" value="<%= productToEdit.price_venta %>" required>
                             </div>
                         </div>
     
@@ -54,7 +51,7 @@
                                 <label  for="priceCompra">Precio de Compra:</label>
                             </div>
                             <div class="col-8">
-                                <input class=" inputNumerico"  type="number"  id="priceCompra" name = "priceCompra" value="<%= productToEdit.priceCompra %>" required>   
+                                <input class=" inputNumerico"  type="number"  id="priceCompra" name = "priceCompra" value="<%= productToEdit.price_compra %>" required>   
                             </div>
                         </div>
     
@@ -63,7 +60,7 @@
                                 <label  for="dateAlta">Fecha de alta:</label>
                             </div>
                             <div class="col-8">
-                                <input class=" inputNumerico"  type="date"  id="dateAlta" name = "dateAlta" value="<%= productToEdit.dateAlta %>"required>
+                                <input class=" inputNumerico"  type="date"  id="dateAlta" name = "dateAlta" value="<%= productToEdit.created_date %>"required>
                             </div>
                         </div>
     
@@ -81,7 +78,7 @@
                                 <label for="descuento">Descuento:</label>
                             </div> 
                             <div class="col-8">
-                                <input class="inputNumerico"  type="descuento"  id="stock" name = "descuento"placeholder="Es un %" value="<%= productToEdit.descuento %>"" required>  
+                                <input class="inputNumerico"  type="descuento"  id="stock" name = "descuento"placeholder="Es un %" value="<%= productToEdit.discount %>"" required>  
                             </div>
                         </div>
                         <br>
@@ -102,7 +99,7 @@
                                 <label for="descripcion">Descripcion del Producto:</label>
                             </div>
                             <div class="col-8 contentEditable">
-                                <textarea class="rounded" name ="descripcion"><%= productToEdit.descripcion %> </textarea>                                
+                                <textarea class="rounded" name ="descripcion"><%= productToEdit.description %> </textarea>                                
                             </div>
                         </div>
     
@@ -111,7 +108,7 @@
                                 <label for="infoAdic">Informacion Adicional:</label></p>
                             </div>
                             <div class="col-8 contentEditable">
-                                <textarea class="rounded" name ="infoAdic" id = "" cols = "40" rows= "5"value="infoAdic" ><%= productToEdit.infoAdic %></textarea>
+                                <textarea class="rounded" name ="infoAdic" id = "" cols = "40" rows= "5"value="infoAdic" ><%= productToEdit.adicional_info %></textarea>
                             </div>
                         </div>
                     </div>

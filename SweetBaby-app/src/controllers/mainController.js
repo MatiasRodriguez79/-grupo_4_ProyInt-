@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const db = require('../database/models');
 
 const carritoFilePath = path.join(__dirname, '../data/carrito.json');
 const carrito = JSON.parse(fs.readFileSync(carritoFilePath, 'utf-8'));
@@ -16,30 +17,35 @@ let usuario = '';
 const controller = {
 	root: (req, res, next) => {
 		
-		 //usuario= req.nomCompleto		
-		//console.log ('hola main '+ usuario)
 		res.render('index', 
 		{usuario:req.nomCompleto} );
 
 	},
-	carrito: (req, res, next) => {
-		// console.log(carrito.find(x=> x.idUser == 1).productsArray.map(x=> {
-		// 	return {
-		// 		...products.find(y => y.id == x.id),
-		// 		imgs : imgs.filter(y => y.idProducto == x.id)
-		// 	}
-		// }));
+	carrito: async (req, res, next) => {
 
-		let productsComprados = [];
-		if(carrito.find(x=> x.idUser == req.session.user)) {
-			productsComprados = carrito.find(x=> x.idUser == req.session.user).productsArray.map(x=> {
-				return {
-					...products.find(y => y.id == x.id),
-					imgs : imgs.filter(y => y.idProducto == x.id)
-				}
-			});
+		const user = await db.User.findByPk(req.session.user, {
+            include: [{association: 'carritos'}]
+		})
+
+		let carritoID
+		if(!user.carritos && user.carritos.includes(x=> x.status == "ACTUAL")) {
+			carritoID =	user.carritos.find(x=> x.status == "ACTUAL").id;
 		}
-		// console.log ('estoye en carrito' + req.nomCompleto)
+
+		let carrito = await db.Carrito.findByPk(carritoID, {
+			include: [{association: 'productos'}]
+		})
+
+		let productsComprados = carrito.productos;
+		// if(carrito.find(x=> x.idUser == req.session.user)) {
+		// 	productsComprados = carrito.find(x=> x.idUser == req.session.user).productsArray.map(x=> {
+		// 		return {
+		// 			...products.find(y => y.id == x.id),
+		// 			imgs : imgs.filter(y => y.idProducto == x.id)
+		// 		}
+		// 	});
+		// }
+
 		res.render('carrito', {			
 			products: productsComprados,
 			totalAmount: productsComprados.reduce((a, b) => a + (b['priceVenta'] || 0), 0),
@@ -47,24 +53,48 @@ const controller = {
 			usuario:req.nomCompleto
 		});
 	},
+
+	addCarrito: async (req, res, next) => {
+
+		let user = await db.User.findByPk(req.session.user, {
+            include: [{association: 'carritos'}]
+		})
+
+		let carritoID
+		if(!user.carritos) {
+			await db.Carrito.create({
+				id_user: req.session.user,
+				status: "ACTUAL"
+			}).then((result) => {
+				carritoID = result.id;
+			});
+		}
+		else {
+			carritoID =	user.carritos.find(x=> x.status == "ACTUAL").id;
+		}
+
+		await db.ProductosCarrito.create({
+			id_carrito: carritoID,
+			id_product: req.query.idProducto
+		});
+
+		
+		res.redirect('/products/');
+	},
+
 	user: (req, res,next) => {
 	
-		// console.log ('estoy en user')
 		res.render('loggin',
-		{
-			error: null
-		},
-		//{usuario:req.nomCompleto}
+			{
+				error: null
+			},
 		);
 	},
 	logOff: (req,res,next)=>{
-		//console.log ('estoy en log off de ' + req.session.user) 
-		//req.session.user = undefined;
-		//req.cookies.recordame = undefined;
+
 		req.session.user = null;
 		res.cookie('recordame', null, { maxAge: -1 });
 		req.session.nomYape= null
-		//console.log ("limpio recordame "+req.session.user+req.cookies.recordame)
 		res.render('loggin',{
 			error: null
 		},

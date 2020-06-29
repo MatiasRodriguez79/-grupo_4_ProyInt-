@@ -1,18 +1,9 @@
 
  function middUserName(req, res, next) {
-
-    
-
     if ( req.session.nomYape != undefined) {
-    
-        req.nomCompleto = req.session.nomYape 
-
-    } else {
-        
+      req.nomCompleto = req.session.nomYape 
     }
-    console.log ('usuario logueadoo  ' + req.session.nomYape)
-   next();
-
+    next();
  }
 
  module.exports = middUserName

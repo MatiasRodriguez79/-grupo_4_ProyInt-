@@ -13,13 +13,10 @@
                     <p><%= products.length %><!-- --> <!-- -->productos</p>
                     <h2 class="subtitle">Categorías</h2>
                     <ul class="list">
-                        <li><a class="list_element active" href="/products">Todas las categorías</a></li>
-                        <li><a class="list_element " href="/products?cat=1">Butacas</a></li>
-                        <li><a class="list_element " href="/products?cat=2">Juguetes</a></li>
-                        <li><a class="list_element " href="/products?cat=3">Cochecitos</a></li>
-                        <li><a class="list_element " href="/products?cat=4">Ropa</a></li>
-                        <li><a class="list_element " href="/products?cat=5">Accesorios</a></li>                        
-                        <li><a class="list_element " href="/products?cat=6">Colechos y Practicunas</a></li>    
+                        <li><a class="list_element active" href="/products">Todas las categorías</a></li> 
+                        <%for( let i = 0; i < categories.length; i++) { %>
+                            <li><a class="list_element " href="/products?cat=<%=categories[i].id%>"><%=categories[i].name%></a></li>                             
+                        <%}%>    
                     </ul>
                                     
                 </div>                
@@ -41,7 +38,7 @@
                                             <div class="carousel-inner">
                                                 <% for (img of product.imgs) { %>
                                                     <div class="carousel-item <% if(img.order == 1) { %> active <% } %>">
-                                                        <img class="d-block w-100" src="/images/products/<%= img.img%>">
+                                                        <img class="d-block w-100" src="<%= img.img%>">
                                                     </div>
                                                 <% } %>
                                             </div>
@@ -57,9 +54,8 @@
                                         <!-- <img src="/images/products/<%=product.image%>" alt="imagen de producto"> -->
                                     </figure>
                                     <article class="product-box_data">
-                                        <h2> $ <%= thousandGenerator(product.priceVenta) %></h2>
-                                        <% if(product.descuento > 0) { %>
-                                            <span><%= product.descuento%>% OFF</span>
+                                        <% if(product.discount > 0) { %>
+                                            <span><%=product.discount%>% OFF</span>
                                         <% } %>
                                         <p><%= product.name%></p>                                    
                                     </article>
