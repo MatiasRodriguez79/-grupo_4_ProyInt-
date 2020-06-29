@@ -18,7 +18,7 @@
                         <div class="carousel-inner">
                             <% for (img of product.imgs) { %>
                                 <div class="carousel-item <% if(img.order == 1) { %> active <% } %>">
-                                    <img class="d-block w-100" src="/images/products/<%= img.img%>">
+                                    <img class="d-block w-100" src="<%= img.img%>">
                                 </div>
                             <% } %>
                         </div>
@@ -37,7 +37,7 @@
                             <h3>Descripción</h3>
                         </div>
                         <div class="col-7">
-                            <span><%= product.descripcion%></span>
+                            <span><%= product.description%></span>
                         </div>
                     </div>
                 </div>
@@ -46,9 +46,9 @@
                     <h1><%= product.name%></h1>  
                         
                     <ul class="actions-list">
-                        <li><p class="precio">$<%= thousandGenerator(product.priceVenta) %> 
-                            <% if(product.descuento > 0) { %>
-                                <span class="offspan"><%= product.descuento%>% OFF</span>
+                        <li><p class="precio">$<%= thousandGenerator(product.price_venta) %> 
+                            <% if(product.discount > 0) { %>
+                                <span class="offspan"><%= product.discount%>% OFF</span>
                             <% } %>
                             </p> 
                         </li>
@@ -82,10 +82,12 @@
                             <option value="7">7</option>
                             <option value="8">8</option>
                         </select>
-                    </div>                 
-                    <div class="barraBotonesDetalle">
-                        <button type="button" class="btn btn-success btnComprar" onclick="alert('Aqui vamos al carrito')">Lo Quiero </button>
-                    </div>
+                    </div> 
+                    <form action="/carrito?idProducto=<%= product.id%>" method="POST">
+                        <div class="barraBotonesDetalle">
+                            <button type="submit" class="btn btn-success btnComprar"> Lo Quiero </button>
+                        </div>
+                    </form>                
                 </div>
             </div>
             

@@ -14,7 +14,6 @@ let storage = multer.diskStorage({
       cb(null, '../public/images/avatars');
     },
     filename: function (req, file, cb) {
-        // console.log(file.fieldname);
         setTimeout(() => {  cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname)); }, 1000);      
     }
 });

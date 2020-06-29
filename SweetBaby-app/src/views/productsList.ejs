@@ -41,14 +41,14 @@
                                 <% for (product of products) { %>
                                     <tr>
                                         <th scope="row"><%=product.id%></th>
-                                        <td><%=product.category%></td>
+                                        <td><%=product.id_category%></td>
                                         <td><%=product.name%></td>
-                                        <td>$<%=thousandGenerator (product.priceVenta) %></td>
-                                        <td>$<%=thousandGenerator (product.priceCompra) %></td>
-                                        <td><%=product.dateAlta%></td>
+                                        <td>$<%=thousandGenerator (product.price_venta) %></td>
+                                        <td>$<%=thousandGenerator (product.price_compra) %></td>
+                                        <td><%=product.created_date%></td>
                                         <td><%=product.stock%></td>
                                         <td><%=product.cuotas%></td>
-                                        <td><%=product.descuento%></td>
+                                        <td><%=product.discount%></td>
                                         <td>
                                             <div class="cart-item-detail-list">
                                                 <form action="/products/edit/<%=product.id%>" method="GET">

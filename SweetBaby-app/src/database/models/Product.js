@@ -27,7 +27,7 @@ let cols = {
         type: dataTypes.DECIMAL
     },
     created_date: {
-        type: dataTypes.DECIMAL
+        type: dataTypes.DATE
     },
     stock : {
         type: dataTypes.INTEGER
@@ -51,6 +51,20 @@ let config = {
     tableName : "products",
     timestamps: false}   
 
-    let Producto = sequelize.define(alias, cols, config)
+    let Producto = sequelize.define(alias, cols, config);
+
+    Producto.associate = function(models) {
+        
+        Producto.hasMany(models.Image, {
+            as: 'imgs',
+            foreignKey: 'id_product',
+        });
+
+        Producto.hasMany(models.ProductosCarrito, {
+            as: 'product_Carrito',
+            foreignKey: 'id_product'
+        });
+    };
+
     return Producto;
 }

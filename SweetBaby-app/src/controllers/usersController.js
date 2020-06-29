@@ -3,11 +3,6 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const db = require('../database/models');
 
-const usersFilePath = path.join(__dirname, '../data/users.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
 const controller = {
 	register: async (req, res, next) => {
 
