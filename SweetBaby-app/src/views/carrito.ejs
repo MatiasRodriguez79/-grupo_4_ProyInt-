@@ -2,7 +2,7 @@
 <%- include('partials/head', {title: 'Inicio'}) %>
 <body>
     <!-- Header -->
-	<%- include('partials/headerNavbar') %>
+	<%- include('partials/headerNavbar')%>
     <!-- /Header -->
     
     <main>        
@@ -23,7 +23,7 @@
                                         <div class="cart-item-column">
                                             <picture class="cart-item-image">
                                                 <a href="/products/detail/<%=product.id%>" title="<%= product.name%>" target="_blank">
-                                                    <img src="/images/products/<%=product.imgs[0].img%>" alt="Img Alt" itemprop="image">
+                                                    <img src="<%=product.imgs[0].img%>" alt="Img Alt" itemprop="image">
                                                 </a>
                                             </picture>
                                         </div> 
@@ -34,7 +34,7 @@
                                         </div>
                                         <div class="cart-item-column-sm">
                                             <label>Precio:</label>
-                                            <span class="cart-item-column-data precio-texto"><%= thousandGenerator(product.priceVenta) %> $</span>
+                                            <span class="cart-item-column-data precio-texto"><%= thousandGenerator(product.price_venta) %> $</span>
                                         </div>
                                         <div class="cart-item-column-sm">
                                             <label>Cantidad:</label>
@@ -51,11 +51,13 @@
                                         </div>
                                         <div class="cart-item-column-sm">
                                             <label>Subtotal:</label>
-                                            <strong class="cart-item-column-data precio-texto"><%= thousandGenerator(product.priceVenta) %> $</strong>
+                                            <strong class="cart-item-column-data precio-texto"><%= thousandGenerator(product.price_venta) %> $</strong>
                                         </div>
-                                        <button class="gui-icon" data-target="#delete-product" onclick="alert('Aqui se eliminara el producto')">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
+                                        <form action="/carrito/<%=idCarrito%>/remove?idProduct=<%=product.id%>" method="POST">
+                                            <button class="gui-icon" data-target="#delete-product" type="submit">
+                                                <i class="far fa-trash-alt"></i>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

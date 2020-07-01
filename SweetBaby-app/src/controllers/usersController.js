@@ -8,14 +8,16 @@ const controller = {
 
         if(req.body.emailRegister1 != req.body.emailRegister2) {
             return res.render('register', {
-                error: 'Los e-mails no coinciden, por favor vuelva a intentarlo.'
+                error: 'Los e-mails no coinciden, por favor vuelva a intentarlo.',
+                total:0
             });   
        
         }
 
         if(req.body.passwordRegister1 != req.body.passwordRegister2) {
             return res.render('register', {
-                error: 'Las contraseñas no coinciden, por favor vuelva a intentarlo.'
+                error: 'Las contraseñas no coinciden, por favor vuelva a intentarlo.',
+                total:0
             });   
        
         }
@@ -38,6 +40,7 @@ const controller = {
         usuarioNombre = req.body.firstName + ' ' + req.body.lastName    
         req.session.user = usuarioLogueado;
         req.session.nomYape = usuarioNombre;
+        req.session.productosCount = 0;
         res.cookie('recordame', usuarioLogueado, { maxAge : 60000})
 
 		res.redirect('/');
@@ -45,7 +48,8 @@ const controller = {
 
     registerGet: (req, res, next) => {
 		res.render('register', {
-            error: null
+            error: null,
+            total:0
         });
     },
 
@@ -54,7 +58,8 @@ const controller = {
         res.render('profile', {
             user: user,
             error: null,
-            usuario:req.nomCompleto
+            usuario:req.nomCompleto,
+            total:req.productosInCarrito
         });
     },
     
@@ -62,7 +67,8 @@ const controller = {
 		const email = req.body.email;
         const password = req.body.password;
 
-        const user = await db.User.findOne({
+        let user = await db.User.findOne({
+            include: [{association: 'carritos'}],
             where: {
                 email: email
             }
@@ -70,20 +76,44 @@ const controller = {
 
         if (!user) {
             return res.render('loggin', {
-                error: 'Usuario no encontrado!'
+                error: 'Usuario no encontrado!',
+                total:0
             });
         }
         if(!bcrypt.compareSync(password, user.password)) {
             return res.render('loggin', {
-                error: 'Password incorrecto!'
-            });   
-       
+                error: 'Password incorrecto!',
+                total:0
+            });          
         }
+
+        let carritoID = 0;
+        let total = 0;
+		if(user.carritos && user.carritos.find(x=> x.status == "ACTUAL")) {
+            carritoID =	user.carritos.find(x=> x.status == "ACTUAL").id;
+            
+            total = await db.Carrito.count({
+                include: [{
+                    association: 'productos'
+                }],
+                where: {
+                    id: carritoID
+                }
+            });
+		}
+
+        
+
+
         usuarioLogueado = user.id
         usuarioNombre = user.first_name + ' ' + user.lasta_name
         req.session.user = usuarioLogueado;
         req.session.nomYape =usuarioNombre
-
+        req.session.carritoId = carritoID;
+        req.session.productosCount = total;
+        req.carritoId = req.session.carritoId;
+        req.productosInCarrito = req.session.productosCount;
+        // console.log(req.productosInCarrito)
         if (typeof req.body.recordame !== "undefined"){
             res.cookie('recordame', usuarioLogueado, { maxAge : 60000})
         }
@@ -108,7 +138,8 @@ const controller = {
         if(req.body.passwordRegister1 != req.body.passwordRegister2) {
             return res.render('profile', {
                 user: newUser,
-                error: 'Las contraseñas no coinciden, por favor vuelva a intentarlo.'
+                error: 'Las contraseñas no coinciden, por favor vuelva a intentarlo.',
+                total:0
             });   
        
         }
