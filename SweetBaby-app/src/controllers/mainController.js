@@ -42,7 +42,7 @@ const controller = {
 				}
 			}]
 		})
-		
+		console.log(carrito.productos)
 		let productsAgregados = carrito.productos;
 		// if(carrito.find(x=> x.idUser == req.session.user)) {
 		// 	productsComprados = carrito.find(x=> x.idUser == req.session.user).productsArray.map(x=> {
@@ -71,7 +71,7 @@ const controller = {
 		})
 
 		let carritoID
-		if(!user.carritos) {
+		if(user.carritos.length == 0) {
 			await db.Carrito.create({
 				id_user: req.session.user,
 				status: "ACTUAL"
@@ -90,7 +90,8 @@ const controller = {
 
 		req.session.productosCount++;
 		req.productosInCarrito = req.session.productosCount;
-
+		req.session.carritoId = carritoID;
+		req.carritoId = req.session.carritoId;
 		
 		res.redirect('/products/');
 	},

@@ -38,7 +38,7 @@ router.get('/:pag?', middUserName, productsController.root); /* GET - All produc
 router.get('/detail/:productId',middUserName, productsController.detail); /* GET - Product detail */
 
 //router.get('/list',middUserName, recordame, usuarioLogueado, productsController.list); /* GET - All products grill*/
-router.get('/list',middUserName, recordame,usuarioLogueado, productsController.list); /* GET - All products grill*/
+router.get('/admin/list',middUserName, recordame,usuarioLogueado, productsController.list); /* GET - All products grill*/
 
 
 /*** EDIT ONE PRODUCT ***/ 
