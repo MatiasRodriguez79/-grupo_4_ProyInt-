@@ -24,7 +24,9 @@ const controller = {
 
 		res.render('productsList',{
 			usuario,
-			products: await db.Producto.findAll(),
+			products: await db.Producto.findAll({
+				include: [{association: 'categ'}]
+			  }),
 			thousandGenerator: toThousand,	
 		});
 	},
@@ -42,8 +44,8 @@ const controller = {
 
 		let products = await db.Producto.findAll({
 			include: [{association: 'imgs'}],
-			limit: 5,
-			offset: pagina
+			//limit: 5,
+			//offset: pagina
 		});
 
 		res.render('products',{
@@ -77,13 +79,15 @@ const controller = {
 		});
 	},*/
 	createDb: async(req, res) => {
+		usuario= req.nomCompleto
 		
 		const categories = await db.Categoria.findAll();
 		const products= await db.Producto.findAll();
      	res.render('productAdd.ejs', {
 			 	products:products,
 				categories: categories,
-				thousandGenerator: toThousand});     
+				thousandGenerator: toThousand,
+				usuario});     
 	},
 
 	/*
@@ -214,6 +218,7 @@ const controller = {
 		res.redirect('/products/list');
 	},
 
+	/*
 	destroy: (req, res) => {
 		// console.log(req.url);
 		let productId = req.params.productId;
@@ -221,6 +226,21 @@ const controller = {
 		let finalImgs = imgs.filter(img => img.idProducto != productId);
 		fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
 		fs.writeFileSync(imgsFilePath, JSON.stringify(finalImgs, null, ' '));
+		res.redirect('/products/list');	
+	},*/
+	destroydb: async(req, res) =>{
+		await db.Producto.destroy({
+            where: {
+                id: req.params.productId
+			}		
+	});
+	
+		await db.Image.destroy({
+			where: {
+				id_product: req.params.productId
+				
+			}	
+	});
         res.redirect('/products/list');
 	}
 };

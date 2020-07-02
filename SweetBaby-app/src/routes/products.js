@@ -31,7 +31,7 @@ let upload = multer({
 //router.get('/create/', recordame, usuarioLogueado, productsController.create); /* GET - Form to create */
 router.get('/create/', recordame, usuarioLogueado, productsController.createDb); /* GET - Form to create */
 //router.post('/create/', upload.any(),productsController.store); /* POST - Store in DB */
-router.post('/create/', upload.any(),productsController.storeDb); /* POST - Store in DB */
+router.post('/create/',recordame,usuarioLogueado, upload.any(),productsController.storeDb); /* POST - Store in DB */
 
 
 router.get('/', middUserName, productsController.root); /* GET - All products */
@@ -47,7 +47,8 @@ router.get('/edit/:productId', middUserName, recordame, usuarioLogueado, product
 router.put('/edit/:productId',recordame, usuarioLogueado, productsController.update); /* PUT - Update in DB */
 
 /*** DELETE ONE PRODUCT***/ 
-router.delete('/delete/:productId', recordame, usuarioLogueado, productsController.destroy); /* DELETE - Delete from DB */
+//router.delete('/delete/:productId', recordame, usuarioLogueado, productsController.destroy); /* DELETE - Delete from DB */
+router.delete('/delete/:productId', recordame, usuarioLogueado, productsController.destroydb); /* DELETE - Delete from DB */
 
 module.exports = router;
 
