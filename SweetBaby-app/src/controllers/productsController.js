@@ -38,25 +38,31 @@ const controller = {
 		const categories = await db.Categoria.findAll();
 		usuario= req.nomCompleto
 		let pagina = 0;
-		const pag = req.params.pag;
+		let pag = Number(req.params.pag);
 		if (pag) {
 			pagina = (req.params.pag - 1) * 5;
+		} else {
+			pag = 1
 		}
 
+		const totalProductos = await db.Producto.count('id')
 		let products = await db.Producto.findAll({
 			include: [{association: 'imgs'}],
 			//limit: 5,
 			//offset: pagina
 		});
 
+		var categoriaSelected = await db.Categoria.findByPk(req.query.cat);
 		res.render('products',{
 			usuario,
 			categories: categories,
-			currentUrl: req.url,
+			currentUrl: req.query.cat ? ("?cat=" + req.query.cat ): "",
 			products: products.filter(x => req.query.cat ? x.id_category == req.query.cat : x),
-			titleCategory: req.query.cat ? await db.Categoria.findByPk(req.query.cat).name : "Todas las categorías",
+			titleCategory: req.query.cat ? categoriaSelected.name : "Todas las categorías",
 			thousandGenerator: toThousand,
-			total:req.productosInCarrito
+			total:req.productosInCarrito,
+			totalProductos,
+			pag
 		});
 	},
 

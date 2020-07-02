@@ -34,11 +34,11 @@ router.get('/create/', recordame, usuarioLogueado, productsController.createDb);
 router.post('/create/',recordame,usuarioLogueado, upload.any(),productsController.storeDb); /* POST - Store in DB */
 
 
-router.get('/', middUserName, productsController.root); /* GET - All products */
-router.get('/detail/:productId/',middUserName, productsController.detail); /* GET - Product detail */
+router.get('/:pag?', middUserName, productsController.root); /* GET - All products */
+router.get('/detail/:productId',middUserName, productsController.detail); /* GET - Product detail */
 
 //router.get('/list',middUserName, recordame, usuarioLogueado, productsController.list); /* GET - All products grill*/
-router.get('/list',middUserName, recordame,usuarioLogueado, productsController.list); /* GET - All products grill*/
+router.get('/admin/list',middUserName, recordame,usuarioLogueado, productsController.list); /* GET - All products grill*/
 
 
 /*** EDIT ONE PRODUCT ***/ 
