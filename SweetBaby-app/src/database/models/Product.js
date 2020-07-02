@@ -68,6 +68,14 @@ let config = {
             as: 'categ',
             foreignKey: 'id_category'
             });
+
+        Producto.belongsToMany(models.Carrito, {
+            as: 'carritos',
+            through: 'products_carrito',
+            foreignKey: 'id_product',
+            otherKey: 'id_carrito',
+            timestamps: false
+        });
     };
 
     return Producto;

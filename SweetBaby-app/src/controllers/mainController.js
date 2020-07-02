@@ -16,27 +16,34 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 let usuario = '';
 const controller = {
 	root: (req, res, next) => {
-		
+
+		console.log(req.productosInCarrito)
 		res.render('index', 
-		{usuario:req.nomCompleto} );
+		{usuario:req.nomCompleto,
+		total:req.productosInCarrito} );
 
 	},
 	carrito: async (req, res, next) => {
 
-		const user = await db.User.findByPk(req.session.user, {
-            include: [{association: 'carritos'}]
+		// const user = await db.User.findByPk(req.session.user, {
+        //     include: [{association: 'carritos'}]
+		// })
+
+		// let carritoID
+		// if(user.carritos && user.carritos.find(x=> x.status == "ACTUAL")) {
+		// 	carritoID =	user.carritos.find(x=> x.status == "ACTUAL").id;
+		// }
+
+		let carrito = await db.Carrito.findByPk(req.carritoId, {
+			include: [{
+				association: 'productos',
+				include: {
+					association: 'imgs'
+				}
+			}]
 		})
-
-		let carritoID
-		if(!user.carritos && user.carritos.includes(x=> x.status == "ACTUAL")) {
-			carritoID =	user.carritos.find(x=> x.status == "ACTUAL").id;
-		}
-
-		let carrito = await db.Carrito.findByPk(carritoID, {
-			include: [{association: 'productos'}]
-		})
-
-		let productsComprados = carrito.productos;
+		
+		let productsAgregados = carrito.productos;
 		// if(carrito.find(x=> x.idUser == req.session.user)) {
 		// 	productsComprados = carrito.find(x=> x.idUser == req.session.user).productsArray.map(x=> {
 		// 		return {
@@ -46,11 +53,14 @@ const controller = {
 		// 	});
 		// }
 
-		res.render('carrito', {			
-			products: productsComprados,
-			totalAmount: productsComprados.reduce((a, b) => a + (b['priceVenta'] || 0), 0),
+		// console.log(productsAgregados.reduce((a, b) => a + (Number(b['price_venta']) || 0), 0))
+		res.render('carrito', {		
+			idCarrito : req.carritoId,
+			products: productsAgregados,
+			totalAmount: Number(productsAgregados.reduce((a, b) => a + (Number(b['price_venta']) || 0), 0)),
 			thousandGenerator: toThousand,
-			usuario:req.nomCompleto
+			usuario:req.nomCompleto,
+			total:req.productosInCarrito
 		});
 	},
 
@@ -78,15 +88,33 @@ const controller = {
 			id_product: req.query.idProducto
 		});
 
+		req.session.productosCount++;
+		req.productosInCarrito = req.session.productosCount;
+
 		
 		res.redirect('/products/');
+	},
+
+	removeProductCarrito: async (req, res, next) => {
+
+		await db.ProductosCarrito.destroy({
+			where: { 
+				id_product: req.query.idProduct,
+				id_carrito: req.params.idCarrito
+			}
+		})
+		
+		req.session.productosCount--;
+		req.productosInCarrito = req.session.productosCount;
+		res.redirect('/carrito');
 	},
 
 	user: (req, res,next) => {
 	
 		res.render('loggin',
 			{
-				error: null
+				error: null,
+				total:0
 			},
 		);
 	},
@@ -95,8 +123,12 @@ const controller = {
 		req.session.user = null;
 		res.cookie('recordame', null, { maxAge: -1 });
 		req.session.nomYape= null
+		req.session.carritoId = null;
+		req.session.productosCount = 0;
+		req.productosInCarrito = req.session.productosCount;
 		res.render('loggin',{
-			error: null
+			error: null,
+			total:0
 		},
 		
 		);

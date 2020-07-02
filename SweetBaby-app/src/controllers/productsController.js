@@ -28,6 +28,7 @@ const controller = {
 				include: [{association: 'categ'}]
 			  }),
 			thousandGenerator: toThousand,	
+			total:req.productosInCarrito
 		});
 	},
 
@@ -54,7 +55,8 @@ const controller = {
 			currentUrl: req.url,
 			products: products.filter(x => req.query.cat ? x.id_category == req.query.cat : x),
 			titleCategory: req.query.cat ? await db.Categoria.findByPk(req.query.cat).name : "Todas las categorías",
-			thousandGenerator: toThousand
+			thousandGenerator: toThousand,
+			total:req.productosInCarrito
 		});
 	},
 
@@ -68,7 +70,8 @@ const controller = {
 		res.render('productDetail',{
 			product: product,
 			thousandGenerator: toThousand,
-			usuario
+			usuario,
+			total:req.productosInCarrito
 		});
 	},
 	// Create - Form to create
@@ -87,7 +90,7 @@ const controller = {
 			 	products:products,
 				categories: categories,
 				thousandGenerator: toThousand,
-				usuario});     
+				total:req.productosInCarrito});     
 	},
 
 	/*
@@ -168,7 +171,8 @@ const controller = {
 		let pdtoID = req.params.productId;
 		let productToEdit = await db.Producto.findByPk(pdtoID);
 		const categories = await db.Categoria.findAll();
-		res.render('productEdit', {productToEdit,categories,thousandGenerator: toThousand })
+		res.render('productEdit', {productToEdit,categories,thousandGenerator: toThousand,
+			total:req.productosInCarrito })
 	},
 
 	

@@ -11,6 +11,7 @@ const middUserName = require ('../middwares/middUserName')
 router.get('/', middUserName, mainController.root);
 router.get('/carrito', middUserName, usuarioLogueado, mainController.carrito);
 router.post('/carrito', middUserName, usuarioLogueado, mainController.addCarrito);
+router.post('/carrito/:idCarrito/remove', middUserName, usuarioLogueado, mainController.removeProductCarrito);
 router.get('/user', middUserName, mainController.user);
 router.get('/logOff', mainController.logOff);
 
