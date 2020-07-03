@@ -3,3 +3,6 @@
 
  05/6 hicimos la retro y dividimos las tareas del  sprint en Trello.
  12/6 reunion de seguimiento de tareas y revisamos si habia bloqueantes para avanzar.
+ 
+ 26\06  hicimos la retro y dividimos las tareas del  sprint en Trello.
+ 02\07  Revisamos si cumplimos con los puntos del Sprint.

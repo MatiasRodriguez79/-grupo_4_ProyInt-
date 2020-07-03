@@ -54,6 +54,7 @@
                                         <!-- <img src="/images/products/<%=product.image%>" alt="imagen de producto"> -->
                                     </figure>
                                     <article class="product-box_data">
+                                        <h2> $ <%= thousandGenerator(product.price_venta) %></h2>
                                         <% if(product.discount > 0) { %>
                                             <span><%=product.discount%>% OFF</span>
                                         <% } %>
@@ -78,7 +79,7 @@
                             </a>
                         </li>
                         <% 
-                        for(var i = 1; i <= totalProductos/5 + 1; i++) {
+                        for(var i = 1; i <= totalProductos/9 + 1; i++) {
                         %>
                         <li class="page-item <% if(pag == i) { %> active <% } %>">
                             <a class="page-link" href="/products/<%= i %><%= currentUrl%>"><%= i %>
@@ -89,7 +90,7 @@
                         </li>
                         <% } %>
 
-                        <li class="page-item <% if( (pag+1) > (totalProductos/5 + 1)) { %> disabled <% } %>">
+                        <li class="page-item <% if( (pag+1) > (totalProductos/9 + 1)) { %> disabled <% } %>">
                             <a class="page-link" href="/products/<%=pag + 1 %><%= currentUrl%>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Next </span>

@@ -24,7 +24,9 @@ const controller = {
 
 		res.render('productsList',{
 			usuario,
-			products: await db.Producto.findAll(),
+			products: await db.Producto.findAll({
+				include: [{association: 'categ'}]
+			  }),
 			thousandGenerator: toThousand,	
 			total:req.productosInCarrito
 		});
@@ -38,7 +40,7 @@ const controller = {
 		let pagina = 0;
 		let pag = Number(req.params.pag);
 		if (pag) {
-			pagina = (req.params.pag - 1) * 5;
+			pagina = (req.params.pag - 1) * 9;
 		} else {
 			pag = 1
 		}
@@ -46,7 +48,7 @@ const controller = {
 		const totalProductos = await db.Producto.count('id')
 		let products = await db.Producto.findAll({
 			include: [{association: 'imgs'}],
-			limit: 5,
+			limit: 9,
 			offset: pagina
 		});
 
@@ -86,6 +88,7 @@ const controller = {
 		});
 	},*/
 	createDb: async(req, res) => {
+		usuario= req.nomCompleto
 		
 		const categories = await db.Categoria.findAll();
 		const products= await db.Producto.findAll();
@@ -93,7 +96,8 @@ const controller = {
 			 	products:products,
 				categories: categories,
 				thousandGenerator: toThousand,
-				total:req.productosInCarrito});     
+				total:req.productosInCarrito,
+			    usuario});     
 	},
 
 	/*
@@ -175,7 +179,7 @@ const controller = {
 		let productToEdit = await db.Producto.findByPk(pdtoID);
 		const categories = await db.Categoria.findAll();
 		res.render('productEdit', {productToEdit,categories,thousandGenerator: toThousand,
-			total:req.productosInCarrito })
+			total:req.productosInCarrito, usuario: req.nomCompleto })
 	},
 
 	
@@ -225,6 +229,7 @@ const controller = {
 		res.redirect('/products/list');
 	},
 
+	/*
 	destroy: (req, res) => {
 		// console.log(req.url);
 		let productId = req.params.productId;
@@ -232,6 +237,21 @@ const controller = {
 		let finalImgs = imgs.filter(img => img.idProducto != productId);
 		fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
 		fs.writeFileSync(imgsFilePath, JSON.stringify(finalImgs, null, ' '));
+		res.redirect('/products/list');	
+	},*/
+	destroydb: async(req, res) =>{
+		await db.Producto.destroy({
+            where: {
+                id: req.params.productId
+			}		
+	});
+	
+		await db.Image.destroy({
+			where: {
+				id_product: req.params.productId
+				
+			}	
+	});
         res.redirect('/products/list');
 	}
 };

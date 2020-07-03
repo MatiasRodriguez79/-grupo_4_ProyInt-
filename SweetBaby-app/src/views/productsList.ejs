@@ -41,7 +41,7 @@
                                 <% for (product of products) { %>
                                     <tr>
                                         <th scope="row"><%=product.id%></th>
-                                        <td><%=product.id_category%></td>
+                                        <td><%=product.categ.name%></td>
                                         <td><%=product.name%></td>
                                         <td>$<%=thousandGenerator (product.price_venta) %></td>
                                         <td>$<%=thousandGenerator (product.price_compra) %></td>

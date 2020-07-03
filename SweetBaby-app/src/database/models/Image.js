@@ -30,12 +30,12 @@ module.exports = (sequelize, dataTypes) => {
     
     let Image = sequelize.define('Image', cols, config);
 
-    // Image.associate = function(models) {
-    //     Image.hasMany(models.Producto, {
-    //         as: 'producto',
-    //         foreignKey: 'id_product'
-    //     });
-    // };
+   // Image.associate = function(models) {
+     //    Image.hasMany(models.Producto, {
+       //     as: 'producto',
+         // foreignKey: 'id_product'
+        //});
+     //};
     
 
     return Image;

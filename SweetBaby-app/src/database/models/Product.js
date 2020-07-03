@@ -20,11 +20,11 @@ let cols = {
     },
 
     price_venta : {
-        type: dataTypes.DECIMAL
+        type: dataTypes.INTEGER
     },
     
     price_compra : {
-        type: dataTypes.DECIMAL
+        type: dataTypes.INTEGER
     },
     created_date: {
         type: dataTypes.DATE
@@ -64,6 +64,10 @@ let config = {
             as: 'product_Carrito',
             foreignKey: 'id_product'
         });
+        Producto.belongsTo(models.Categoria, {
+            as: 'categ',
+            foreignKey: 'id_category'
+            });
 
         Producto.belongsToMany(models.Carrito, {
             as: 'carritos',

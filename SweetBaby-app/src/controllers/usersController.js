@@ -92,19 +92,14 @@ const controller = {
 		if(user.carritos && user.carritos.find(x=> x.status == "ACTUAL")) {
             carritoID =	user.carritos.find(x=> x.status == "ACTUAL").id;
             
-            total = await db.Carrito.count({
-                include: [{
-                    association: 'productos'
-                }],
+            total = await db.ProductosCarrito.count({
                 where: {
-                    id: carritoID
+                    id_carrito: carritoID
                 }
             });
 		}
 
         
-
-
         usuarioLogueado = user.id
         usuarioNombre = user.first_name + ' ' + user.lasta_name
         req.session.user = usuarioLogueado;
