@@ -42,8 +42,22 @@ const controller = {
 				}
 			}]
 		})
-		console.log(carrito.productos)
-		let productsAgregados = carrito.productos;
+		 
+		if (!carrito){
+			let carritoID;
+			await db.Carrito.create({
+				id_user: req.session.user,
+				status: "ACTUAL"
+			}).then((result) => {
+				carritoID = result.id;
+			});
+			req.session.carritoId = carritoID;
+			req.carritoId = req.session.carritoId;
+			return res.redirect ('/carrito')
+		}
+		
+		//console.log(carrito.productos)
+		let productsAgregados= carrito.productos
 		// if(carrito.find(x=> x.idUser == req.session.user)) {
 		// 	productsComprados = carrito.find(x=> x.idUser == req.session.user).productsArray.map(x=> {
 		// 		return {
@@ -107,6 +121,7 @@ const controller = {
 		
 		req.session.productosCount--;
 		req.productosInCarrito = req.session.productosCount;
+		
 		res.redirect('/carrito');
 	},
 

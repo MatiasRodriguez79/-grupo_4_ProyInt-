@@ -40,7 +40,7 @@ const controller = {
 		let pagina = 0;
 		let pag = Number(req.params.pag);
 		if (pag) {
-			pagina = (req.params.pag - 1) * 5;
+			pagina = (req.params.pag - 1) * 9;
 		} else {
 			pag = 1
 		}
@@ -48,8 +48,8 @@ const controller = {
 		const totalProductos = await db.Producto.count('id')
 		let products = await db.Producto.findAll({
 			include: [{association: 'imgs'}],
-			//limit: 5,
-			//offset: pagina
+			limit: 9,
+			offset: pagina
 		});
 
 		var categoriaSelected = await db.Categoria.findByPk(req.query.cat);
@@ -96,7 +96,8 @@ const controller = {
 			 	products:products,
 				categories: categories,
 				thousandGenerator: toThousand,
-				total:req.productosInCarrito});     
+				total:req.productosInCarrito,
+			    usuario});     
 	},
 
 	/*
@@ -178,7 +179,7 @@ const controller = {
 		let productToEdit = await db.Producto.findByPk(pdtoID);
 		const categories = await db.Categoria.findAll();
 		res.render('productEdit', {productToEdit,categories,thousandGenerator: toThousand,
-			total:req.productosInCarrito })
+			total:req.productosInCarrito, usuario: req.nomCompleto })
 	},
 
 	
