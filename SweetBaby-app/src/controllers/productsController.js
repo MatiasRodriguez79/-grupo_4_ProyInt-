@@ -144,6 +144,23 @@ const controller = {
 
 	storeDb: async (req, res, next) => {
 		let productId;
+		let error='';
+		if (req.body.name.length < 6){
+			error=  'El nombre debe tener mas de cinco letras.'
+			 }
+		
+		if (req.body.descripcion.length < 21) {
+			error+= ' La descripcion debe tener mas de veinte letras.'
+			}
+			console.log (error)
+		if (error.length > 1){
+				const categories = await db.Categoria.findAll();
+				return res.render('productAdd', {total: 0, categories, error}
+				 )
+		} 
+
+
+
 		await db.Producto.create ({
 			id_category : Number(req.body.idCategory),
 			name: (req.body.name),
@@ -173,7 +190,7 @@ const controller = {
 	},
 
 	// Update - Form to edit
-	edit: async (req, res) => {
+	edit: async (req, res, next) => {
 
 		let pdtoID = req.params.productId;
 		let productToEdit = await db.Producto.findByPk(pdtoID);
@@ -182,13 +199,29 @@ const controller = {
 			total:req.productosInCarrito, usuario: req.nomCompleto })
 	},
 
-	
-
 		// Update - Method to update
-	update: (req, res) => {
-
+	update: async (req, res, next) => {
+		let error = '';
 		let pdtoID = req.params.productId;
 		// let productToEdit = products.find(product => product.id == pdtoID)
+		if (req.body.name.length < 6){
+			error=  'El nombre debe tener mas de cinco letras.'
+			 }
+		
+		if (req.body.descripcion.length < 21) {
+			error+= ' La descripcion debe tener mas de veinte letras.'
+			}
+			console.log (error)
+		if (error.length > 1){
+				let productToEdit = await db.Producto.findByPk(pdtoID);
+				const categories = await db.Categoria.findAll();
+				return res.render('productEdit',
+				 {productToEdit,categories,thousandGenerator: toThousand,
+				total:req.productosInCarrito, usuario: req.nomCompleto, 
+				error: error })
+		} 
+	
+		
 
 		db.Producto.update({
 			id_category : Number(req.body.idCategory),

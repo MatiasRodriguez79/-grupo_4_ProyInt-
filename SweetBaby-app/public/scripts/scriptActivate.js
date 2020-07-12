@@ -1,3 +1,5 @@
+
+
 var btnContainer = document.getElementById("myDIV");
 // Get all buttons with class="btn" inside the container
 var lis = btnContainer.getElementsByClassName("page-item");

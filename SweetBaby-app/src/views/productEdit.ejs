@@ -10,6 +10,13 @@
             <h4>Modificacion de Producto:</h4>
         </div>
         <div class="main container">
+            <% if( typeof error != 'undefined') { %>
+                <div class="card text-white bg-danger">
+                    <div class="card-body">
+                        <h2 class="card-title"><%=error%></h2>
+                    </div>
+                </div>
+            <% } %>
         <!--<form action="/products/create" method="POST" enctype= "multipart/form-data">-->
             <form method="POST"  action="/products/edit/<%= productToEdit.id%>?_method=PUT" >
                 <div class="row">
