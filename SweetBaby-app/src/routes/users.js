@@ -3,6 +3,9 @@ var router = express.Router();
 const multer = require('multer');
 const path = require('path');
 
+const {check, validationResult, body, query } = require('express-validator');
+const db = require('../database/models');
+
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController');
 const middUserName = require ('../middwares/middUserName')
@@ -25,7 +28,15 @@ let upload = multer({
 
 
 /* GET home page. */
-router.post('/register', upload.any(), usersController.register);
+router.post('/register', upload.any(),[
+    body('firstName').isLength({min:2}).withMessage('El nombre de usuario muy corto, debe tener al menos 2 caracteres.'),
+    body('passwordRegister1').isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres.'),
+    body('emailRegister1').custom(async function(value){
+        const user = await db.User.findAll({where: {email: value}});
+        if(user.length > 0)
+            return Promise.reject();
+    }).withMessage('Usuario ya existente.'),
+], usersController.register);
 router.get('/profile', middUserName, usersController.profile)
 router.put('/register/update', upload.any(), usersController.update);
 router.put('/register/update-pass', usersController.updatePass);
