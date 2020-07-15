@@ -11,6 +11,13 @@
         </div>
     
         <div class="main container">
+            <% if( typeof error != 'undefined') { %>
+                <div class="card text-white bg-danger">
+                    <div class="card-body">
+                        <h2 class="card-title"><%=error%></h2>
+                    </div>
+                </div>
+            <% } %>
             <form action="/products/create" method="POST" enctype= "multipart/form-data">
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-sm-12 division1">
@@ -33,7 +40,7 @@
                             </div>
                             
                             <div class="col-8">
-                                <input class="inputTexto" type="text"  id="name" name = "name" placeholder="Ej: Cochecito Paraguita Duck" required> 
+                                <input class="inputTexto" type="text"  id="name" name = "name" placeholder="Ej: Cochecito Paraguita Duck" onchange="return ValidarNameproduct(this)" required> 
                             </div>                  
                         </div>
                         <br>
@@ -99,7 +106,7 @@
                                 <label for="descripcion">Descripcion del Producto:</label>
                             </div>
                             <div class="col-8 contentEditable">
-                                <textarea class="rounded" name ="descripcion" id = "" cols = "40" rows= "5"value="descripcion"placeholder="Ingrese todas las caracteristicas del producto"> </textarea>
+                                <textarea class="rounded" name ="descripcion" id = "" cols = "40" rows= "5"value="descripcion"placeholder="Ingrese todas las caracteristicas del producto" onchange="return ValidarDescriptionProduct(this)"> </textarea>
                             </div>
                         </div>
                         <div class="row">
@@ -114,10 +121,10 @@
                             <div class="col-4">
                                 <label for="">Añadir Imagenes:</label> 
                             </div>
-                            <div class="col-8">
+                            <div id= 'imagePreview'class="col-8">
                                 <!-- Carga Imagen -->  
                                 <!-- <input name="imagen" type="file" accept="application/pdf, .jpg" multiple  /> -->
-                                <input class="form-control" type="file" id="imagen" name="imagen" placeholder="Seleccione una imagen para mostrar" accept="application/pdf, .jpg" multiple>
+                                <input class="form-control" type="file" id="imagen" name="imagen" placeholder="Seleccione una imagen para mostrar" onchange="return fileValidation()" multiple>
                             </div>
                         </div>
                     </div>
@@ -137,5 +144,8 @@
     <!-- footer -->
     <%- include('partials/footer') %>
     <!-- /footer --> 
+    
+    <script type="text/javascript" src="/scripts/scriptCreateProducts.js"></script>
+   
 </body>
 </html>

@@ -10,6 +10,13 @@
             <h4>Modificacion de Producto:</h4>
         </div>
         <div class="main container">
+            <% if( typeof error != 'undefined') { %>
+                <div class="card text-white bg-danger">
+                    <div class="card-body">
+                        <h2 class="card-title"><%=error%></h2>
+                    </div>
+                </div>
+            <% } %>
         <!--<form action="/products/create" method="POST" enctype= "multipart/form-data">-->
             <form method="POST"  action="/products/edit/<%= productToEdit.id%>?_method=PUT" >
                 <div class="row">
@@ -33,7 +40,7 @@
                                 <label for="name">Nombre:</label>
                             </div>
                             <div class="col-8">
-                                <input class="inputTexto" type="text"  id="name" name = "name"  placeholder="Ej: Cochecito Paraguita Duck" value="<%= productToEdit.name %>"required> 
+                                <input class="inputTexto" type="text"  id="name" name = "name"  placeholder="Ej: Cochecito Paraguita Duck" value="<%= productToEdit.name %>" onchange="return ValidarNameproduct(this)" required> 
                             </div>                  
                         </div>
                         <br>
@@ -99,7 +106,7 @@
                                 <label for="descripcion">Descripcion del Producto:</label>
                             </div>
                             <div class="col-8 contentEditable">
-                                <textarea class="rounded" name ="descripcion"><%= productToEdit.description %> </textarea>                                
+                                <textarea class="rounded" name ="descripcion" onchange="return ValidarDescriptionProduct(this)"><%= productToEdit.description %> </textarea>                                
                             </div>
                         </div>
     
@@ -125,6 +132,8 @@
     
     <!-- footer -->
 	<%- include('partials/footer') %>
-	<!-- /footer -->    
+    <!-- /footer -->    
+  
+    <script type="text/javascript" src="/scripts/scriptCreateProducts.js"></script>
 </body>
 </html>
