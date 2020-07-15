@@ -21,7 +21,7 @@
                                 <div class="row cart-container">
                                     <div class="col-lg-6 col-sm-12 cart-item">
                                         <h5 class="card-title" for="">Nombre</h5>
-                                        <input type="text" name="firstName" id="firstName" placeholder="Nombre" required>
+                                        <input type="text" name="firstName" id="firstName" placeholder="Nombre" onchange="return ValidarField(this, 2)" required>
                                     </div>
                                     <div class="col-lg-6 col-sm-12 cart-item">
                                         <h5 class="card-title" for="">Apellido</h5>
@@ -32,11 +32,11 @@
                                 <div class="row cart-container">
                                     <div class="col-lg-6 col-sm-12 cart-item">
                                         <h5 class="card-title" for="">Email</h5>
-                                        <input type="email" name="emailRegister1" id="emailRegister1" placeholder="ejemplo@outlook.com" required>  
+                                        <input type="email" name="emailRegister1" id="emailRegister1" placeholder="Email" onchange="return validateFieldEmail(this)" required>  
                                     </div>
                                     <div class="col-lg-6 col-sm-12 cart-item">
                                         <h5 class="card-title" for="">  Repetir Email</h5>
-                                        <input type="email" name="emailRegister2" id="emailRegister2" placeholder="Repetir email" required>
+                                        <input type="email" name="emailRegister2" id="emailRegister2" placeholder="Repetir email" onchange="return validateFieldEmail2(this)" required>
                                     </div>
                                 </div>
     
@@ -50,11 +50,11 @@
                                 <div class="row cart-container">
                                     <div class="col-lg-6 col-sm-12 cart-item">
                                         <h5 class="card-title" for="">Contraseña</h5>
-                                        <input type="password" name="passwordRegister1" id="passwordRegister1" placeholder="Contraseña" required>   
+                                        <input type="password" name="passwordRegister1" id="passwordRegister1" placeholder="Contraseña" onchange="return validateFieldPassword(this, 8)" required>   
                                     </div>
                                     <div class="col-lg-6 col-sm-12 cart-item">
                                         <h5 class="card-title" for="">Repetir Contraseña</h5>
-                                        <input type="password" name="passwordRegister2" id="passwordRegister2" placeholder="Repetir Contraseña" required> 
+                                        <input type="password" name="passwordRegister2" id="passwordRegister2" placeholder="Repetir Contraseña" onchange="return ValidarField2(this, 8)" required> 
                                     </div>
                                 </div>
     
@@ -68,7 +68,7 @@
                                 <div class="row cart-container">
                                     <div class="col-lg-12 col-sm-12 cart-item-noBr">
                                         <label class="card-title" for="">Cargá un avatar</label>
-                                        <input class="form-control" type="file" id="avatar" name="avatar" placeholder="Seleccione una imagen para mostrar" accept="application/pdf, .jpg" multiple>
+                                        <input class="form-control" type="file" id="avatar" name="avatar" placeholder="Seleccione una imagen para mostrar" onchange="return fileValidation()" multiple>
                                     </div>
                                 </div>
     
@@ -85,6 +85,6 @@
     </main>
     <!-- footer -->
 	<%- include('partials/footer') %>
-	<!-- /footer -->
+    <!-- /footer -->
 </body>
 </html>

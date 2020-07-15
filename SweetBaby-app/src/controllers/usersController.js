@@ -2,9 +2,21 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const db = require('../database/models');
+const {check, validationResult, body } = require('express-validator');
 
 const controller = {
 	register: async (req, res, next) => {
+        
+        let errors = validationResult(req);
+
+        // console.log(errors.array()[0]);
+        // console.log(errors.array());
+        if(!errors.isEmpty()){
+			return res.render('register', {
+                error: errors.array()[0].msg,
+                total:0
+            }); 
+        }
 
         if(req.body.emailRegister1 != req.body.emailRegister2) {
             return res.render('register', {
@@ -46,7 +58,12 @@ const controller = {
 		res.redirect('/');
     },
 
-    registerGet: (req, res, next) => {
+    registerGet: async (req, res, next) => {
+        let users = await db.User.findAll();
+        // sessionStorage.setItem('users', users);
+        console.log(users); 
+        // console.log(sessionStorage.getItem('users'));
+
 		res.render('register', {
             error: null,
             total:0
