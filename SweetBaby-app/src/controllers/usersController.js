@@ -88,9 +88,12 @@ const controller = {
             include: [{association: 'carritos'}],
             where: {
                 email: email
-            }
+            },
+            include:[{association:'atributo'}]
         })
-
+        
+        console.log ('atributo ' + user.atributo.rol)
+        
         if (!user) {
             return res.render('loggin', {
                 error: 'Usuario no encontrado!',
@@ -118,6 +121,7 @@ const controller = {
 
         
         usuarioLogueado = user.id
+        req.session.rol = user.atributo.rol
         usuarioNombre = user.first_name + ' ' + user.lasta_name
         req.session.user = usuarioLogueado;
         req.session.nomYape =usuarioNombre

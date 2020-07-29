@@ -17,10 +17,13 @@ let usuario = '';
 const controller = {
 	root: (req, res, next) => {
 
-		console.log(req.productosInCarrito)
+		//console.log(req.productosInCarrito)
+		console.log('root ' + req.rol)
 		res.render('index', 
 		{usuario:req.nomCompleto,
-		total:req.productosInCarrito} );
+		total:req.productosInCarrito, 
+		rol: req.rol
+	} );
 
 	},
 	carrito: async (req, res, next) => {

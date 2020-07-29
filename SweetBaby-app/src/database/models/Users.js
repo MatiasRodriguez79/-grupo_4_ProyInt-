@@ -44,6 +44,14 @@ module.exports = (sequelize, dataTypes) => {
           as: 'carritos',
           foreignKey: 'id_user'
       });
+
+
+      User.belongsTo(models.Atributos, {
+        as: 'atributo',
+        foreignKey: 'id_atribute'
+        });
+
+
     };
 
     return User;

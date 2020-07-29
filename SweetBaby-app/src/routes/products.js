@@ -25,7 +25,8 @@ let upload = multer({
   storage: storage
 });
 
-
+/*** API LISTAR ***/ 
+router.get('/create/listarProductos',productsController.listarProductos); 
 
 /*** CREATE ONE PRODUCT ***/ 
 //router.get('/create/', recordame, usuarioLogueado, productsController.create); /* GET - Form to create */

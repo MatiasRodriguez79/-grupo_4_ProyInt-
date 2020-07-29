@@ -17,6 +17,15 @@ let usuario = '';
 
 const controller = {
 
+
+	listarProductos: async (req,res)=> {
+		const products=  await db.Producto.findAll({
+			include: [{association: 'categ'}]
+		  })
+
+		  res.json (products);
+	},
+
 	// List - Show all products Table
 	list: async (req, res) => {
 
