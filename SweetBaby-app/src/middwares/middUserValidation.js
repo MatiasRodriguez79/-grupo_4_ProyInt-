@@ -8,7 +8,7 @@ function userValidation (req, res, next){
        res.redirect('/user');
     }else{
         req.usuario = req.session.user;
-        req.rol = req.session.rol;
+        //req.rol = req.session.rol;
         req.nomCompleto = req.session.nomYape;
         req.carritoId = req.session.carritoId;
         req.productosInCarrito = req.session.productosCount;

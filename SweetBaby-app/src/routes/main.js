@@ -8,7 +8,7 @@ const middUserName = require ('../middwares/middUserName')
 
 
 /* GET home page. */
-router.get('/', middUserName, usuarioLogueado, mainController.root);
+router.get('/', middUserName, mainController.root);
 router.get('/carrito', middUserName, usuarioLogueado, mainController.carrito);
 router.post('/carrito', middUserName, usuarioLogueado, mainController.addCarrito);
 router.post('/carrito/:idCarrito/remove', middUserName, usuarioLogueado, mainController.removeProductCarrito);
