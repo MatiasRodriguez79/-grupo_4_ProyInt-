@@ -52,6 +52,7 @@ const controller = {
         usuarioNombre = req.body.firstName + ' ' + req.body.lastName    
         req.session.user = usuarioLogueado;
         req.session.nomYape = usuarioNombre;
+        req.session.rol = "USER"
         req.session.productosCount = 0;
         res.cookie('recordame', usuarioLogueado, { maxAge : 60000})
 
@@ -76,7 +77,8 @@ const controller = {
             user: user,
             error: null,
             usuario:req.nomCompleto,
-            total:req.productosInCarrito
+            total:req.productosInCarrito,
+            rol: req.rol
         });
     },
     
@@ -155,7 +157,8 @@ const controller = {
             return res.render('profile', {
                 user: newUser,
                 error: 'Las contraseñas no coinciden, por favor vuelva a intentarlo.',
-                total:0
+                total:0,
+                rol: req.rol
             });   
        
         }
