@@ -2,12 +2,11 @@ var express = require('express');
 var router = express.Router();
 const multer = require('multer');
 const path = require('path');
-
 const {check, validationResult, body, query } = require('express-validator');
 const db = require('../database/models');
-
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController');
+const usersControllerApi = require('../controllersApi/userControllerApi');
 const middUserName = require ('../middwares/middUserName')
 
 
@@ -42,5 +41,10 @@ router.put('/register/update', upload.any(), usersController.update);
 router.put('/register/update-pass', usersController.updatePass);
 router.get('/register', usersController.registerGet);
 router.post('/login', usersController.login);
+
+
+/*** API ***/ 
+router.get('/api/users/:userId',usersControllerApi.detailPorIdApi); 
+router.get('/api/users/', usersControllerApi.listarUsersApi);
 
 module.exports = router;

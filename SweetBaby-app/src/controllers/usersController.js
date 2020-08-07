@@ -62,7 +62,7 @@ const controller = {
     registerGet: async (req, res, next) => {
         let users = await db.User.findAll();
         // sessionStorage.setItem('users', users);
-        console.log(users); 
+       
         // console.log(sessionStorage.getItem('users'));
 
 		res.render('register', {

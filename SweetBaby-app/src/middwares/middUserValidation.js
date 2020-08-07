@@ -2,7 +2,7 @@
 
 function userValidation (req, res, next){
 
-    console.log (req.session.rol)
+    //console.log (req.session.rol)
 
   if (req.session.user== undefined ){
        res.redirect('/user');

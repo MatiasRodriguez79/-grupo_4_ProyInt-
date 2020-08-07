@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
+const {check, validationResult, body } = require('express-validator');
 
 // const productsFilePath = path.join(__dirname, '../data/products.json');
 // const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -17,14 +18,7 @@ let usuario = '';
 
 const controller = {
 
-
-	listarProductos: async (req,res)=> {
-		const products=  await db.Producto.findAll({
-			include: [{association: 'categ'}]
-		  })
-
-		  res.json (products);
-	},
+	
 
 	// List - Show all products Table
 	list: async (req, res) => {
@@ -167,21 +161,17 @@ const controller = {
 
 	storeDb: async (req, res, next) => {
 		let productId;
-		let error='';
-		if (req.body.name.length < 6){
-			error=  'El nombre debe tener mas de cinco letras.'
-			 }
-		
-		if (req.body.descripcion.length < 21) {
-			error+= ' La descripcion debe tener mas de veinte letras.'
-			}
-			console.log (error)
-		if (error.length > 1){
-				const categories = await db.Categoria.findAll();
-				return res.render('productAdd', {total: 0, categories, error, rol: req.rol}
-				 )
-		} 
-
+		let errors = validationResult(req);
+        if(!errors.isEmpty()){
+			const categories = await db.Categoria.findAll();
+			return res.render('productAdd', {
+                error: errors.array()[0].msg,
+				total:0,
+				categories,
+				rol: req.rol,
+				usuario: req.nomCompleto
+            }); 
+        }
 
 
 		await db.Producto.create ({
@@ -224,26 +214,20 @@ const controller = {
 
 		// Update - Method to update
 	update: async (req, res, next) => {
-		let error = '';
 		let pdtoID = req.params.productId;
 		// let productToEdit = products.find(product => product.id == pdtoID)
-		if (req.body.name.length < 6){
-			error=  'El nombre debe tener mas de cinco letras.'
-			 }
-		
-		if (req.body.descripcion.length < 21) {
-			error+= ' La descripcion debe tener mas de veinte letras.'
-			}
-			console.log (error)
-		if (error.length > 1){
-				let productToEdit = await db.Producto.findByPk(pdtoID);
-				const categories = await db.Categoria.findAll();
-				return res.render('productEdit',
-				 {productToEdit,categories,thousandGenerator: toThousand,
-				total:req.productosInCarrito, usuario: req.nomCompleto, 
-				error: error, rol: req.rol })
-		} 
-	
+		let errors = validationResult(req);
+        if(!errors.isEmpty()){
+			const categories = await db.Categoria.findAll();
+			let productToEdit = await db.Producto.findByPk(pdtoID);
+			return res.render('productEdit', {
+				productToEdit,categories,thousandGenerator: toThousand,
+				usuario: req.nomCompleto, 
+                error: errors.array()[0].msg,
+				total:0,
+				rol: req.rol
+            }); 
+        }
 		
 
 		db.Producto.update({
