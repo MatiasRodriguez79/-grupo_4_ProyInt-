@@ -107,9 +107,9 @@ ul {
 
 .info-articule h3{  
   text-transform: uppercase;
-  color: white;
+  color:blue;
   /* font-size: 1.5rem; */
-  font-size: calc(0.2rem + 1vw);
+  font-size: calc(1rem + 1vw);
   text-align: center;
 }
 

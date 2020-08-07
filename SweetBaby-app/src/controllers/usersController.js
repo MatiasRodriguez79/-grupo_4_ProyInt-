@@ -52,6 +52,7 @@ const controller = {
         usuarioNombre = req.body.firstName + ' ' + req.body.lastName    
         req.session.user = usuarioLogueado;
         req.session.nomYape = usuarioNombre;
+        req.session.rol = "USER"
         req.session.productosCount = 0;
         res.cookie('recordame', usuarioLogueado, { maxAge : 60000})
 
@@ -61,7 +62,7 @@ const controller = {
     registerGet: async (req, res, next) => {
         let users = await db.User.findAll();
         // sessionStorage.setItem('users', users);
-        console.log(users); 
+       
         // console.log(sessionStorage.getItem('users'));
 
 		res.render('register', {
@@ -76,7 +77,8 @@ const controller = {
             user: user,
             error: null,
             usuario:req.nomCompleto,
-            total:req.productosInCarrito
+            total:req.productosInCarrito,
+            rol: req.rol
         });
     },
     
@@ -88,9 +90,12 @@ const controller = {
             include: [{association: 'carritos'}],
             where: {
                 email: email
-            }
+            },
+            include:[{association:'atributo'}]
         })
-
+        
+        console.log ('atributo ' + user.atributo.rol)
+        
         if (!user) {
             return res.render('loggin', {
                 error: 'Usuario no encontrado!',
@@ -118,6 +123,7 @@ const controller = {
 
         
         usuarioLogueado = user.id
+        req.session.rol = user.atributo.rol
         usuarioNombre = user.first_name + ' ' + user.lasta_name
         req.session.user = usuarioLogueado;
         req.session.nomYape =usuarioNombre
@@ -151,7 +157,8 @@ const controller = {
             return res.render('profile', {
                 user: newUser,
                 error: 'Las contraseñas no coinciden, por favor vuelva a intentarlo.',
-                total:0
+                total:0,
+                rol: req.rol
             });   
        
         }

@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
+const {check, validationResult, body } = require('express-validator');
 
 // const productsFilePath = path.join(__dirname, '../data/products.json');
 // const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -17,6 +18,8 @@ let usuario = '';
 
 const controller = {
 
+	
+
 	// List - Show all products Table
 	list: async (req, res) => {
 
@@ -28,7 +31,8 @@ const controller = {
 				include: [{association: 'categ'}]
 			  }),
 			thousandGenerator: toThousand,	
-			total:req.productosInCarrito
+			total:req.productosInCarrito,
+			rol: req.rol
 		});
 	},
 
@@ -62,7 +66,8 @@ const controller = {
 			thousandGenerator: toThousand,
 			total:req.productosInCarrito,
 			totalProductos,
-			pag
+			pag,
+			rol: req.rol
 		});
 	},
 
@@ -73,11 +78,21 @@ const controller = {
 		let product = await db.Producto.findByPk(req.params.productId, {
 			include: [{association: 'imgs'}],
 		});
+
+		let productSimilares = await db.Producto.findAll({
+			include: [{association: 'imgs'}],
+			where: {id_category:product.id_category}
+		});
+		productSimilares = productSimilares.filter(x => x.id != product.id);
+
+
 		res.render('productDetail',{
 			product: product,
 			thousandGenerator: toThousand,
 			usuario,
-			total:req.productosInCarrito
+			total:req.productosInCarrito,
+			productSimilares,
+			rol: req.rol
 		});
 	},
 	// Create - Form to create
@@ -97,7 +112,9 @@ const controller = {
 				categories: categories,
 				thousandGenerator: toThousand,
 				total:req.productosInCarrito,
-			    usuario});     
+				usuario, 
+				rol: req.rol
+			});     
 	},
 
 	/*
@@ -144,21 +161,17 @@ const controller = {
 
 	storeDb: async (req, res, next) => {
 		let productId;
-		let error='';
-		if (req.body.name.length < 6){
-			error=  'El nombre debe tener mas de cinco letras.'
-			 }
-		
-		if (req.body.descripcion.length < 21) {
-			error+= ' La descripcion debe tener mas de veinte letras.'
-			}
-			console.log (error)
-		if (error.length > 1){
-				const categories = await db.Categoria.findAll();
-				return res.render('productAdd', {total: 0, categories, error}
-				 )
-		} 
-
+		let errors = validationResult(req);
+        if(!errors.isEmpty()){
+			const categories = await db.Categoria.findAll();
+			return res.render('productAdd', {
+                error: errors.array()[0].msg,
+				total:0,
+				categories,
+				rol: req.rol,
+				usuario: req.nomCompleto
+            }); 
+        }
 
 
 		await db.Producto.create ({
@@ -186,7 +199,7 @@ const controller = {
 			});
 		});
 		
-		res.redirect('/products/list');
+		res.redirect('/products/admin/list');
 	},
 
 	// Update - Form to edit
@@ -196,31 +209,25 @@ const controller = {
 		let productToEdit = await db.Producto.findByPk(pdtoID);
 		const categories = await db.Categoria.findAll();
 		res.render('productEdit', {productToEdit,categories,thousandGenerator: toThousand,
-			total:req.productosInCarrito, usuario: req.nomCompleto })
+			total:req.productosInCarrito, usuario: req.nomCompleto, rol: req.rol })
 	},
 
 		// Update - Method to update
 	update: async (req, res, next) => {
-		let error = '';
 		let pdtoID = req.params.productId;
 		// let productToEdit = products.find(product => product.id == pdtoID)
-		if (req.body.name.length < 6){
-			error=  'El nombre debe tener mas de cinco letras.'
-			 }
-		
-		if (req.body.descripcion.length < 21) {
-			error+= ' La descripcion debe tener mas de veinte letras.'
-			}
-			console.log (error)
-		if (error.length > 1){
-				let productToEdit = await db.Producto.findByPk(pdtoID);
-				const categories = await db.Categoria.findAll();
-				return res.render('productEdit',
-				 {productToEdit,categories,thousandGenerator: toThousand,
-				total:req.productosInCarrito, usuario: req.nomCompleto, 
-				error: error })
-		} 
-	
+		let errors = validationResult(req);
+        if(!errors.isEmpty()){
+			const categories = await db.Categoria.findAll();
+			let productToEdit = await db.Producto.findByPk(pdtoID);
+			return res.render('productEdit', {
+				productToEdit,categories,thousandGenerator: toThousand,
+				usuario: req.nomCompleto, 
+                error: errors.array()[0].msg,
+				total:0,
+				rol: req.rol
+            }); 
+        }
 		
 
 		db.Producto.update({
@@ -259,7 +266,7 @@ const controller = {
 
 		// fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
 		
-		res.redirect('/products/list');
+		res.redirect('/products/admin/list');
 	},
 
 	/*
@@ -285,7 +292,7 @@ const controller = {
 				
 			}	
 	});
-        res.redirect('/products/list');
+        res.redirect('/products/admin/list');
 	}
 };
 

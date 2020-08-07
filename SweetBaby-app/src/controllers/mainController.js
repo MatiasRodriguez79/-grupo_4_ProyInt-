@@ -17,10 +17,13 @@ let usuario = '';
 const controller = {
 	root: (req, res, next) => {
 
-		console.log(req.productosInCarrito)
+		//console.log(req.productosInCarrito)
+		//console.log('root ' + req.rol)
 		res.render('index', 
 		{usuario:req.nomCompleto,
-		total:req.productosInCarrito} );
+		total:req.productosInCarrito, 
+		rol: req.rol
+	} );
 
 	},
 	carrito: async (req, res, next) => {
@@ -74,7 +77,8 @@ const controller = {
 			totalAmount: Number(productsAgregados.reduce((a, b) => a + (Number(b['price_venta']) || 0), 0)),
 			thousandGenerator: toThousand,
 			usuario:req.nomCompleto,
-			total:req.productosInCarrito
+			total:req.productosInCarrito,
+			rol: req.rol
 		});
 	},
 
