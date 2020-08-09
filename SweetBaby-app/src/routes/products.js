@@ -9,7 +9,7 @@ const recordame = require ('../middwares/middRecordame')
 const middUserName = require ('../middwares/middUserName')
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
-const productsControllerApi = require('../controllersApi/productsControllerApi');
+//const productsControllerApi = require('../controllersApi/productsControllerApi');
 
 
 
@@ -27,9 +27,6 @@ let upload = multer({
   storage: storage
 });
 
-/*** API LISTAR ***/ 
-router.get('/api/products/',productsControllerApi.listarProductosApi); 
-router.get('/api/products/:productId',productsControllerApi.detailPorIdApi); 
 
 /*** CREATE ONE PRODUCT ***/ 
 //router.get('/create/', recordame, usuarioLogueado, productsController.create); /* GET - Form to create */
