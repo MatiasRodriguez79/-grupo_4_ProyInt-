@@ -4,7 +4,7 @@ const controller = {
 
     listarProductosApi: async (req,res)=> {
         let apiProducts = 'http://localhost:3001/api/products/';
-        let countByCategory= await db.sequelize.query ('Select cat.id, cat.name, Count(p.id_category) cantidad_productos from products p inner join categories cat on(cat.id = p.id_category) group by p.id_category')
+        let countByCategory= await db.sequelize.query ('Select cat.id, cat.name, Count(p.id_category) cantidad_productos from categories cat left join products p on(cat.id = p.id_category) group by cat.id')
         let productsList= await db.Producto.findAndCountAll({
             include: [{association: 'categ'}],
            // group: "id_category",
