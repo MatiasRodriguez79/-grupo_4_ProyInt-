@@ -6,7 +6,7 @@ const controller = {
        
         //let userList= await db.sequelize.query ('Select first_name, lasta_name, email from users')
         //let count = await db.User.count()
-
+        console.log('estoy en usercontrollerapi')
         let userList= await db.User.findAndCountAll({
             attributes: ['first_name', 'lasta_name', 'email']
             })

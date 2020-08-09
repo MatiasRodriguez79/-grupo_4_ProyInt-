@@ -39,11 +39,15 @@ app.set('view engine', 'ejs');
 const mainRouter = require('./routes/main'); // Rutas main
 const productsRouter = require('./routes/products'); // Rutas /products
 const usersRouter = require('./routes/users'); // Rutas /products
+const apiRouterProducts = require('./routes/Api/productApi'); // Rutas Api/products
+const apiRouterUsers = require('./routes/Api/userApi'); // Rutas Api/products
 
 
 app.use('/',  mainRouter);
 app.use('/products', productsRouter);
 app.use('/user', usersRouter);
+app.use('/api', apiRouterProducts);
+app.use('/api', apiRouterUsers);
 
 
 // ************ DON'T TOUCH FROM HERE ************
