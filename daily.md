@@ -6,3 +6,6 @@
  
  26\06  hicimos la retro y dividimos las tareas del  sprint en Trello.
  02\07  Revisamos si cumplimos con los puntos del Sprint.
+
+31\07 hicimos la retro y dividimos las tareas del sprint en Trello. 
+08\07 Revisamos si cumplimos con los puntos del Sprint.
