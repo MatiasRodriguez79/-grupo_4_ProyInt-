@@ -50,3 +50,18 @@ Hacer menos:
 	- 
 Dejar de hacer:
 	- Resolver las tareas el ultimo dia del Sprint.
+
+
+Retro Sprint 6 - Fecha: 26/07/2020.
+
+Hacer más:
+	- Constancia en la comunicacion del equipo.
+	
+Continuar haciendo:
+	- Planificacion del Sprint en Trello.
+	- Cumplir con la fecha de entrega del Sprint.
+	- Realizar los puntos opcionales.
+Hacer menos:
+	- 
+Dejar de hacer:
+	- Resolver las tareas el ultimo dia del Sprint.
