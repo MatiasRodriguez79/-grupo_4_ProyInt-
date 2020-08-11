@@ -35,3 +35,5 @@ Tableros:
 -https://trello.com/b/6WJfVBJR/proyintsprint3
 -https://trello.com/b/IkCoaL6p/proyintsprint4
 -https://trello.com/b/6kCgqjq5/proyintsprint5
+-https://trello.com/b/RqC3366P/proyintsprint6
+-https://trello.com/b/8JhzcMva/proyintsprint7
